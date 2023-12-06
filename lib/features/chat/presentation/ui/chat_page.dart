@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:my_messenger/app/theme/app_colors.dart';
-import 'dart:math' as math;
 
 @RoutePage()
 class ChatPage extends StatelessWidget {
@@ -107,77 +105,5 @@ class ChatPage extends StatelessWidget {
       ),
       backgroundColor: AppColors.background,
     );
-  }
-}
-
-class BottomPersistentDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-
-  BottomPersistentDelegate({required this.child});
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return child;
-  }
-
-  @override
-  double get maxExtent => 76;
-
-  @override
-  double get minExtent => 76;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      false;
-}
-
-class SliverFooter extends SingleChildRenderObjectWidget {
-  const SliverFooter({super.key, super.child});
-
-  @override
-  RenderObject createRenderObject(BuildContext context) => RenderSliverFooter();
-}
-
-class RenderSliverFooter extends RenderSliverSingleBoxAdapter {
-  @override
-  void performLayout() {
-    final extent =
-        constraints.remainingPaintExtent - math.min(constraints.overlap, 0.0);
-    double childGrowthSize = .0; // added
-    if (child != null) {
-      // changed maxExtent from 'extent' to double.infinity
-      child!.layout(
-        constraints.asBoxConstraints(minExtent: extent),
-        parentUsesSize: true,
-      );
-      childGrowthSize = constraints.axis == Axis.vertical
-          ? child!.size.height
-          : child!.size.width; // added
-    }
-    final paintedChildSize =
-        calculatePaintOffset(constraints, from: 0.0, to: extent);
-    assert(
-        paintedChildSize.isFinite,
-        'The calculated paintedChildSize '
-        '$paintedChildSize for child $child is not finite.');
-    assert(
-        paintedChildSize >= 0.0,
-        'The calculated paintedChildSize was '
-        '$paintedChildSize but is not greater than or equal to zero. '
-        'This can happen if the child is too big in which case it '
-        'should be sized down or if the SliverConstraints.scrollOffset '
-        'was not correct.');
-    geometry = SliverGeometry(
-      // used to be this : scrollExtent: constraints.viewportMainAxisExtent,
-      scrollExtent: math.max(extent, childGrowthSize),
-      paintExtent: paintedChildSize,
-      maxPaintExtent: paintedChildSize,
-      hasVisualOverflow: extent > constraints.remainingPaintExtent ||
-          constraints.scrollOffset > 0.0,
-    );
-    if (child != null) {
-      setChildParentData(child!, constraints, geometry!);
-    }
   }
 }
