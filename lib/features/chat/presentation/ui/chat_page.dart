@@ -9,6 +9,7 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(
@@ -43,40 +44,43 @@ class ChatPage extends StatelessWidget {
           ],
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList.builder(
-            itemBuilder: (context, index) {
-              return Text(index.toString());
-            },
-            itemCount: 100,
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              reverse: true,
+              itemBuilder: (context, index) {
+                return Text(index.toString());
+              },
+              itemCount: 100,
+            ),
+          ),
+          Container(
+            height: 72,
+            decoration: const BoxDecoration(color: Colors.white),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+            width: MediaQuery.sizeOf(context).width,
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Type your message...',
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.send,
+                    color: AppColors.gray,
+                  ),
+                ),
+                prefixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.add,
+                    color: AppColors.gray,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        height: 72,
-        decoration: const BoxDecoration(color: Colors.white),
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-        width: MediaQuery.sizeOf(context).width,
-        child: TextFormField(
-          decoration: InputDecoration(
-            hintText: 'Type your message...',
-            suffixIcon: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.send,
-                color: AppColors.gray,
-              ),
-            ),
-            prefixIcon: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.add,
-                color: AppColors.gray,
-              ),
-            ),
-          ),
-        ),
       ),
       backgroundColor: AppColors.background,
     );
