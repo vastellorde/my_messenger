@@ -32,7 +32,7 @@ class AuthService implements IAuthService {
   @override
   void init() {
     talker.debug('[Auth Service] init');
-    _streamSubscription = FirebaseAuth.instance.idTokenChanges().listen(
+    _streamSubscription = FirebaseAuth.instance.authStateChanges().listen(
       (user) {
         _authSubject.add(user != null);
       },

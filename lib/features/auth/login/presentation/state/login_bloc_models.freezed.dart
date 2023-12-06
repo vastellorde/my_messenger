@@ -133,7 +133,7 @@ abstract class _LoginEvent implements LoginEvent {
 
 /// @nodoc
 mixin _$LoginState {
-  Ds<dynamic> get dataState => throw _privateConstructorUsedError;
+  Ds<void> get dataState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -146,9 +146,9 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({Ds<dynamic> dataState});
+  $Res call({Ds<void> dataState});
 
-  $DsCopyWith<dynamic, $Res> get dataState;
+  $DsCopyWith<void, $Res> get dataState;
 }
 
 /// @nodoc
@@ -170,14 +170,14 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       dataState: null == dataState
           ? _value.dataState
           : dataState // ignore: cast_nullable_to_non_nullable
-              as Ds<dynamic>,
+              as Ds<void>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DsCopyWith<dynamic, $Res> get dataState {
-    return $DsCopyWith<dynamic, $Res>(_value.dataState, (value) {
+  $DsCopyWith<void, $Res> get dataState {
+    return $DsCopyWith<void, $Res>(_value.dataState, (value) {
       return _then(_value.copyWith(dataState: value) as $Val);
     });
   }
@@ -191,10 +191,10 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Ds<dynamic> dataState});
+  $Res call({Ds<void> dataState});
 
   @override
-  $DsCopyWith<dynamic, $Res> get dataState;
+  $DsCopyWith<void, $Res> get dataState;
 }
 
 /// @nodoc
@@ -214,7 +214,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
       null == dataState
           ? _value.dataState
           : dataState // ignore: cast_nullable_to_non_nullable
-              as Ds<dynamic>,
+              as Ds<void>,
     ));
   }
 }
@@ -225,7 +225,7 @@ class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(this.dataState);
 
   @override
-  final Ds<dynamic> dataState;
+  final Ds<void> dataState;
 
   @override
   String toString() {
@@ -252,10 +252,10 @@ class _$LoginStateImpl implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  const factory _LoginState(final Ds<dynamic> dataState) = _$LoginStateImpl;
+  const factory _LoginState(final Ds<void> dataState) = _$LoginStateImpl;
 
   @override
-  Ds<dynamic> get dataState;
+  Ds<void> get dataState;
   @override
   @JsonKey(ignore: true)
   _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>

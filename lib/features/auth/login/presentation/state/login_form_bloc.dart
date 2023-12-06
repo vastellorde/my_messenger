@@ -6,7 +6,7 @@ import 'package:my_messenger/core/utils/either/either.dart';
 import 'package:my_messenger/core/utils/form/value_objects.dart';
 import 'package:my_messenger/core/utils/option/option.dart';
 import 'package:my_messenger/features/auth/login/data/models/login_model.dart';
-import 'package:my_messenger/features/auth/login/domain/auth_failure.dart';
+import 'package:my_messenger/features/auth/login/domain/entities/auth_failure.dart';
 import 'package:my_messenger/features/auth/login/presentation/state/login_form_bloc_models.dart';
 
 @injectable

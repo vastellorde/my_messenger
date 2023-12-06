@@ -30,22 +30,42 @@ class _LoginPageState extends State<LoginPage> {
           create: (context) => GetIt.I.get(),
         ),
       ],
-      child: BlocListener<LoginFormBloc, LoginFormState>(
-        listener: (context, state) {
-          state.failureOrSuccessOption.fold(
-            () => null,
-            (either) => {
-              either.when(
-                left: (_) {},
-                right: (model) {
-                  context.read<LoginBloc>().add(
-                        LoginEvent(model),
-                      );
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<LoginFormBloc, LoginFormState>(
+            listener: (context, state) {
+              state.failureOrSuccessOption.fold(
+                () => null,
+                (either) => {
+                  either.when(
+                    left: (_) {},
+                    right: (model) {
+                      context.read<LoginBloc>().add(
+                            LoginEvent(model),
+                          );
+                    },
+                  ),
                 },
-              ),
+              );
             },
-          );
-        },
+          ),
+          BlocListener<LoginBloc, LoginState>(
+            listener: (context, state) {
+              state.dataState.whenOrNull(
+                () => null,
+                error: (error) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        error.toString(),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ],
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Login'),

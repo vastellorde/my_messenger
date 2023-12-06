@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_messenger/core/utils/either/either.dart';
 import 'package:my_messenger/core/utils/option/option.dart';
 import 'package:my_messenger/features/auth/login/data/models/login_model.dart';
-import 'package:my_messenger/features/auth/login/domain/auth_failure.dart';
-import 'package:my_messenger/features/auth/login/domain/credentials.dart';
+import 'package:my_messenger/features/auth/login/domain/entities/auth_failure.dart';
+import 'package:my_messenger/features/auth/login/domain/entities/credentials.dart';
 
 part 'login_form_bloc_models.freezed.dart';
 

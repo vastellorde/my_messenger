@@ -5,4 +5,5 @@ part 'auth_failure.freezed.dart';
 @freezed
 class AuthFailure with _$AuthFailure {
   const factory AuthFailure.validationFailure() = _ValidationFailure;
+  const factory AuthFailure({required String reason}) = _AuthFailure;
 }

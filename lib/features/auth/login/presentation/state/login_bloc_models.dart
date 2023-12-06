@@ -11,5 +11,9 @@ class LoginEvent with _$LoginEvent {
 
 @freezed
 class LoginState with _$LoginState {
-  const factory LoginState(Ds dataState) = _LoginState;
+  const factory LoginState(Ds<void> dataState) = _LoginState;
+
+  factory LoginState.empty() {
+    return const LoginState(Ds());
+  }
 }
