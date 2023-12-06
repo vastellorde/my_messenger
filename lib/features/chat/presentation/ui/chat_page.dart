@@ -75,31 +75,6 @@ class ChatPage extends StatelessWidget {
                 color: AppColors.gray,
               ),
             ),
-            fillColor: AppColors.background,
-            filled: true,
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                  width: 1,
-                  color: AppColors.background,
-                  style: BorderStyle.none),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                  width: 0,
-                  color: AppColors.background,
-                  style: BorderStyle.none),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(
-                  width: 0,
-                  color: AppColors.background,
-                  style: BorderStyle.none),
-            ),
           ),
         ),
       ),

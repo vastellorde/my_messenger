@@ -11,9 +11,37 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.primary, secondary: AppColors.secondary),
-      ),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.primary,
+            secondary: AppColors.secondary,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            fillColor: AppColors.background,
+            filled: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColors.background,
+                  style: BorderStyle.none),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(
+                  width: 0,
+                  color: AppColors.background,
+                  style: BorderStyle.none),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(
+                  width: 0,
+                  color: AppColors.background,
+                  style: BorderStyle.none),
+            ),
+          )),
       routerConfig: GetIt.I.get<AppRouter>().config(
             navigatorObservers: () => [
               TalkerRouteObserver(
