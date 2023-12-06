@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:my_messenger/app/theme/app_colors.dart';
+import 'package:my_messenger/features/chat/data/models/message.dart';
+import 'package:my_messenger/features/chat/presentation/ui/widgets/text_message_widget.dart';
 
 @RoutePage()
 class ChatPage extends StatelessWidget {
@@ -47,10 +49,23 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
               reverse: true,
               itemBuilder: (context, index) {
-                return Text(index.toString());
+                return TextMessageWidget(
+                    message: Message.text(
+                        uid: index.toString(),
+                        text: 'some text with index $index',
+                        type: index.isEven
+                            ? MessageType.received
+                            : MessageType.sent,
+                        time: DateTime.now()));
+              },
+              separatorBuilder: (_, __) {
+                return const SizedBox(
+                  height: 12,
+                );
               },
               itemCount: 100,
             ),
