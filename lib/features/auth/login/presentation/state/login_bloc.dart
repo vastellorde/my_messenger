@@ -21,6 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   FutureOr<void> _onLogin(LoginEvent event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(dataState: const Ds.loading()));
     final response = await repository.signIn(event.request);
     if (response.isLeft) {
       emit(state.copyWith(dataState: Ds.error(error: response.left)));
