@@ -11,15 +11,10 @@ import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_p
 import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_submit_button.dart';
 
 @RoutePage()
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   final void Function() onSuccess;
   const LoginPage({required this.onSuccess, super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -61,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 );
               }, success: (_) {
-                widget.onSuccess();
+                onSuccess();
               });
             },
           ),
