@@ -1,30 +1,56 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:my_messenger/app/router/guards/auth_guard.dart';
 import 'package:my_messenger/app/router/router.gr.dart';
+import 'package:my_messenger/core/services/auth/auth_service.dart';
 
 @AutoRouterConfig()
-class AppRouter extends $AppRouter {
-  final AuthGuard authGuard;
+class AppRouter extends $AppRouter implements AutoRouteGuard {
+  final IAuthService authService;
 
-  AppRouter({required this.authGuard});
+  AppRouter({
+    required this.authService,
+  });
 
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
           page: HomeRoute.page,
           path: '/',
-          guards: [authGuard],
+          initial: true,
         ),
-        AutoRoute(page: AuthRoute.page, path: '/auth', children: [
-          RedirectRoute(path: '', redirectTo: 'login'),
-          AutoRoute(page: LoginRoute.page, path: 'login')
-        ]),
+        AutoRoute(
+          page: AuthRoute.page,
+          path: '/auth',
+          children: [
+            RedirectRoute(
+              path: '',
+              redirectTo: 'login',
+            ),
+            AutoRoute(
+              page: LoginRoute.page,
+              path: 'login',
+            )
+          ],
+        ),
         AutoRoute(
           page: ChatRoute.page,
           path: '/room/:id',
         ),
-        RedirectRoute(path: '*', redirectTo: '/')
+        RedirectRoute(
+          path: '*',
+          redirectTo: '/',
+        )
       ];
+
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) {
+    if (authService.isLoggedIn || resolver.route.name == LoginRoute.name) {
+      resolver.next();
+    } else {
+      resolver.redirect(LoginRoute(onSuccess: () {
+        resolver.next();
+      }));
+    }
+  }
 }
 
 @RoutePage(name: 'AuthRoute')

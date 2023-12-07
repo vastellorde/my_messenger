@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i5;
+import 'package:flutter/material.dart' as _i6;
 import 'package:my_messenger/app/router/router.dart' as _i1;
 import 'package:my_messenger/features/auth/login/presentation/ui/login_page.dart'
     as _i4;
@@ -41,9 +42,13 @@ abstract class $AppRouter extends _i5.RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>();
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.LoginPage(),
+        child: _i4.LoginPage(
+          onSuccess: args.onSuccess,
+          key: args.key,
+        ),
       );
     },
   };
@@ -93,14 +98,38 @@ class HomeRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.LoginPage]
-class LoginRoute extends _i5.PageRouteInfo<void> {
-  const LoginRoute({List<_i5.PageRouteInfo>? children})
-      : super(
+class LoginRoute extends _i5.PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    required void Function() onSuccess,
+    _i6.Key? key,
+    List<_i5.PageRouteInfo>? children,
+  }) : super(
           LoginRoute.name,
+          args: LoginRouteArgs(
+            onSuccess: onSuccess,
+            key: key,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'LoginRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static const _i5.PageInfo<LoginRouteArgs> page =
+      _i5.PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({
+    required this.onSuccess,
+    this.key,
+  });
+
+  final void Function() onSuccess;
+
+  final _i6.Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{onSuccess: $onSuccess, key: $key}';
+  }
 }

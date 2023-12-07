@@ -13,10 +13,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:talker_flutter/talker_flutter.dart' as _i9;
 
-import '../core/infrastructure/infrastructure_module.dart' as _i16;
+import '../core/infrastructure/infrastructure_module.dart' as _i15;
 import '../core/services/auth/auth_service.dart' as _i10;
 import '../core/services/http/dio_client_creator.dart' as _i11;
-import '../core/services/http/dio_client_module.dart' as _i18;
+import '../core/services/http/dio_client_module.dart' as _i17;
 import '../features/auth/login/data/datasources/local/login_local_datasource.dart'
     as _i4;
 import '../features/auth/login/data/datasources/remote/login_remote_datasource.dart'
@@ -27,9 +27,8 @@ import '../features/auth/login/domain/repositories/login_repository.dart'
 import '../features/auth/login/presentation/state/login_bloc.dart' as _i12;
 import '../features/auth/login/presentation/state/login_form_bloc.dart' as _i8;
 import '../features/chat/presentation/state/chat_bloc.dart' as _i3;
-import 'router/guards/auth_guard.dart' as _i13;
-import 'router/router.dart' as _i15;
-import 'router/router_module.dart' as _i17;
+import 'router/router.dart' as _i13;
+import 'router/router_module.dart' as _i16;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -62,15 +61,14 @@ _i1.GetIt $initGetIt(
         gh<_i9.Talker>(),
         gh<_i6.ILoginRepository>(),
       ));
-  gh.singleton<_i13.AuthGuard>(routerModule.authGuard(gh<_i10.IAuthService>()));
+  gh.singleton<_i13.AppRouter>(routerModule.appRouter(gh<_i10.IAuthService>()));
   gh.singleton<_i14.Dio>(
       dioClientModule.makeDioClient(gh<_i11.IDioClientCreator>()));
-  gh.singleton<_i15.AppRouter>(routerModule.appRouter(gh<_i13.AuthGuard>()));
   return getIt;
 }
 
-class _$InfrastructureModule extends _i16.InfrastructureModule {}
+class _$InfrastructureModule extends _i15.InfrastructureModule {}
 
-class _$RouterModule extends _i17.RouterModule {}
+class _$RouterModule extends _i16.RouterModule {}
 
-class _$DioClientModule extends _i18.DioClientModule {}
+class _$DioClientModule extends _i17.DioClientModule {}

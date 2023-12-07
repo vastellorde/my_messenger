@@ -43,6 +43,7 @@ dependencies:
   intl: ^0.18.1
   json_annotation: ^4.8.1
   native_dio_adapter: ^1.1.1
+  provider: ^6.1.1
   rxdart: ^0.27.7
   shared_preferences: ^2.2.2
   sliver_tools: ^0.2.12

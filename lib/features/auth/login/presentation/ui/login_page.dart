@@ -12,7 +12,8 @@ import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_s
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function() onSuccess;
+  const LoginPage({required this.onSuccess, super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -51,18 +52,17 @@ class _LoginPageState extends State<LoginPage> {
           ),
           BlocListener<LoginBloc, LoginState>(
             listener: (context, state) {
-              state.dataState.whenOrNull(
-                () => null,
-                error: (error) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        error.toString(),
-                      ),
+              state.dataState.whenOrNull(() => null, error: (error) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      error.toString(),
                     ),
-                  );
-                },
-              );
+                  ),
+                );
+              }, success: (_) {
+                widget.onSuccess();
+              });
             },
           ),
         ],

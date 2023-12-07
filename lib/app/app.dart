@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_messenger/app/router/router.dart';
 import 'package:my_messenger/app/theme/app_colors.dart';
+import 'package:my_messenger/core/services/auth/auth_service.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 class App extends StatelessWidget {
@@ -48,6 +50,9 @@ class App extends StatelessWidget {
                 GetIt.I.get<Talker>(),
               ),
             ],
+            reevaluateListenable: ReevaluateListenable.stream(
+              GetIt.I.get<IAuthService>().authStream,
+            ),
           ),
     );
   }

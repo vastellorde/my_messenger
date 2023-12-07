@@ -31,12 +31,9 @@ class AuthService implements IAuthService {
 
   @override
   void init() {
-    talker.debug('[Auth Service] init');
-    _streamSubscription = FirebaseAuth.instance.authStateChanges().listen(
-      (user) {
-        _authSubject.add(user != null);
-      },
-    );
+    talker.debug('[AuthService] init');
+    _streamSubscription =
+        FirebaseAuth.instance.authStateChanges().listen(_handleAuth);
   }
 
   @override
@@ -55,6 +52,14 @@ class AuthService implements IAuthService {
   void dispose() {
     _authSubject.close();
     _streamSubscription?.cancel();
+  }
+
+  void _handleAuth(User? user) {
+    if (user != null) {
+      auth();
+    } else {
+      unAuth();
+    }
   }
 }
 
