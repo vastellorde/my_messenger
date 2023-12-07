@@ -28,7 +28,7 @@ class Password extends ValueObject {
 
 class Username extends ValueObject {
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure<String>, String> value;
 
   factory Username(String username) {
     return Username._(

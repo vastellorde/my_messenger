@@ -26,5 +26,5 @@ Either<ValueFailure<String>, String> validateStringMinLength(
     return Either.right(input);
   }
 
-  return Either.left(ValueFailure.empty(failedValue: input));
+  return Either.left(ValueFailure.invalid(failedValue: input));
 }
