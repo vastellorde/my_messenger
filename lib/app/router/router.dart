@@ -28,7 +28,11 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             AutoRoute(
               page: LoginRoute.page,
               path: 'login',
-            )
+            ),
+            AutoRoute(
+              page: RegisterRoute.page,
+              path: 'register',
+            ),
           ],
         ),
         AutoRoute(
@@ -43,12 +47,19 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (authService.isLoggedIn || resolver.route.name == LoginRoute.name) {
+    if (authService.isLoggedIn ||
+        resolver.routeName == AuthRoute.name ||
+        resolver.routeName == LoginRoute.name ||
+        resolver.routeName == RegisterRoute.name) {
       resolver.next();
     } else {
-      resolver.redirect(LoginRoute(onSuccess: () {
-        resolver.next();
-      }));
+      resolver.redirect(
+        LoginRoute(
+          onSuccess: () {
+            resolver.next();
+          },
+        ),
+      );
     }
   }
 }

@@ -51,7 +51,7 @@ class App extends StatelessWidget {
               ),
             ],
             reevaluateListenable: ReevaluateListenable.stream(
-              GetIt.I.get<IAuthService>().authStream,
+              GetIt.I.get<IAuthService>().authStream.distinct(),
             ),
           ),
     );
