@@ -8,6 +8,7 @@ import 'package:my_messenger/features/auth/login/presentation/state/login_form_b
 import 'package:my_messenger/features/auth/login/presentation/state/login_form_bloc_models.dart';
 import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_email_input.dart';
 import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_password_input.dart';
+import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_register_button.dart';
 import 'package:my_messenger/features/auth/login/presentation/ui/widgets/login_submit_button.dart';
 
 @RoutePage()
@@ -71,6 +72,7 @@ class LoginPage extends StatelessWidget {
               LoginEmailInput(),
               LoginPasswordInput(),
               LoginSubmitButton(),
+              LoginRegisterButton(),
             ],
           ),
         ),
