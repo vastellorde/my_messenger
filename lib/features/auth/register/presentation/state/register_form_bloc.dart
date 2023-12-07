@@ -57,8 +57,12 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
       repeatPasswordChanged: (repeatPassword) {
         emit(
           state.copyWith(
-            credentials: state.credentials
-                .copyWith(repeatPassword: Password(repeatPassword)),
+            credentials: state.credentials.copyWith(
+              repeatPassword: RepeatPassword(
+                repeatPassword,
+                state.credentials.password.value.getOrElse(() => ''),
+              ),
+            ),
             failureOrSuccessOption: const Option.none(),
           ),
         );

@@ -13,7 +13,7 @@ class RegisterCredentials with _$RegisterCredentials {
     required EmailAddress emailAddress,
     required Username username,
     required Password password,
-    required Password repeatPassword,
+    required RepeatPassword repeatPassword,
   }) = _RegisterCredentials;
 
   factory RegisterCredentials.empty() {
@@ -21,7 +21,7 @@ class RegisterCredentials with _$RegisterCredentials {
       emailAddress: EmailAddress(''),
       username: Username(''),
       password: Password(''),
-      repeatPassword: Password(''),
+      repeatPassword: RepeatPassword('', ''),
     );
   }
 

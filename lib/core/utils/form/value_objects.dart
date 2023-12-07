@@ -26,6 +26,18 @@ class Password extends ValueObject {
   const Password._(this.value);
 }
 
+class RepeatPassword extends ValueObject {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory RepeatPassword(String input, String password) {
+    return RepeatPassword._(validateStringNotEmpty(input)
+        .flatMap((r) => validatePasswordMath(password, r)));
+  }
+
+  const RepeatPassword._(this.value);
+}
+
 class Username extends ValueObject {
   @override
   final Either<ValueFailure<String>, String> value;

@@ -36,7 +36,7 @@ class RegisterPasswordInput extends StatelessWidget {
                 .fold(
                   (l) => l.map(
                     empty: (_) => 'Required field',
-                    invalid: (_) => 'Invalid password',
+                    invalid: (_) => 'Passwords missmatch',
                   ),
                   (r) => null,
                 ),

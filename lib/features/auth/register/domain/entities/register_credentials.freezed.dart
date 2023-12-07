@@ -19,7 +19,7 @@ mixin _$RegisterCredentials {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Username get username => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  Password get repeatPassword => throw _privateConstructorUsedError;
+  RepeatPassword get repeatPassword => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterCredentialsCopyWith<RegisterCredentials> get copyWith =>
@@ -36,7 +36,7 @@ abstract class $RegisterCredentialsCopyWith<$Res> {
       {EmailAddress emailAddress,
       Username username,
       Password password,
-      Password repeatPassword});
+      RepeatPassword repeatPassword});
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$RegisterCredentialsCopyWithImpl<$Res, $Val extends RegisterCredentials>
       repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as RepeatPassword,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$RegisterCredentialsImplCopyWith<$Res>
       {EmailAddress emailAddress,
       Username username,
       Password password,
-      Password repeatPassword});
+      RepeatPassword repeatPassword});
 }
 
 /// @nodoc
@@ -125,7 +125,7 @@ class __$$RegisterCredentialsImplCopyWithImpl<$Res>
       repeatPassword: null == repeatPassword
           ? _value.repeatPassword
           : repeatPassword // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as RepeatPassword,
     ));
   }
 }
@@ -147,7 +147,7 @@ class _$RegisterCredentialsImpl extends _RegisterCredentials {
   @override
   final Password password;
   @override
-  final Password repeatPassword;
+  final RepeatPassword repeatPassword;
 
   @override
   String toString() {
@@ -183,10 +183,11 @@ class _$RegisterCredentialsImpl extends _RegisterCredentials {
 
 abstract class _RegisterCredentials extends RegisterCredentials {
   const factory _RegisterCredentials(
-      {required final EmailAddress emailAddress,
-      required final Username username,
-      required final Password password,
-      required final Password repeatPassword}) = _$RegisterCredentialsImpl;
+          {required final EmailAddress emailAddress,
+          required final Username username,
+          required final Password password,
+          required final RepeatPassword repeatPassword}) =
+      _$RegisterCredentialsImpl;
   const _RegisterCredentials._() : super._();
 
   @override
@@ -196,7 +197,7 @@ abstract class _RegisterCredentials extends RegisterCredentials {
   @override
   Password get password;
   @override
-  Password get repeatPassword;
+  RepeatPassword get repeatPassword;
   @override
   @JsonKey(ignore: true)
   _$$RegisterCredentialsImplCopyWith<_$RegisterCredentialsImpl> get copyWith =>

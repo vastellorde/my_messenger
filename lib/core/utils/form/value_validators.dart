@@ -28,3 +28,14 @@ Either<ValueFailure<String>, String> validateStringMinLength(
 
   return Either.left(ValueFailure.invalid(failedValue: input));
 }
+
+Either<ValueFailure<String>, String> validatePasswordMath(
+  String password,
+  String repeatPassword,
+) {
+  if (password == repeatPassword) {
+    return Either.right(password);
+  }
+
+  return Either.left(ValueFailure.invalid(failedValue: repeatPassword));
+}
