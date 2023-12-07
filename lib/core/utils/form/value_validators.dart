@@ -17,3 +17,14 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   }
   return Either.left(ValueFailure.invalid(failedValue: input));
 }
+
+Either<ValueFailure<String>, String> validateStringMinLength(
+  String input,
+  int length,
+) {
+  if (input.length >= length) {
+    return Either.right(input);
+  }
+
+  return Either.left(ValueFailure.empty(failedValue: input));
+}

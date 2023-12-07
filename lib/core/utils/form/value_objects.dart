@@ -25,3 +25,18 @@ class Password extends ValueObject {
 
   const Password._(this.value);
 }
+
+class Username extends ValueObject {
+  @override
+  final Either<ValueFailure, dynamic> value;
+
+  factory Username(String username) {
+    return Username._(
+      validateStringNotEmpty(username).flatMap(
+        (v) => validateStringMinLength(v, 5),
+      ),
+    );
+  }
+
+  const Username._(this.value);
+}
