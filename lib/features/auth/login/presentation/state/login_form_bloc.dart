@@ -16,7 +16,9 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   FutureOr<void> _onLoginFormEvent(
-      LoginFormEvent event, Emitter<LoginFormState> emit) async {
+    LoginFormEvent event,
+    Emitter<LoginFormState> emit,
+  ) async {
     await event.when(
       emailChanged: (e) async {
         emit(state.copyWith(

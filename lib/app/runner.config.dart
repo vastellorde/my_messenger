@@ -8,15 +8,15 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i14;
+import 'package:dio/dio.dart' as _i15;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:talker_flutter/talker_flutter.dart' as _i9;
+import 'package:talker_flutter/talker_flutter.dart' as _i10;
 
-import '../core/infrastructure/infrastructure_module.dart' as _i15;
-import '../core/services/auth/auth_service.dart' as _i10;
-import '../core/services/http/dio_client_creator.dart' as _i11;
-import '../core/services/http/dio_client_module.dart' as _i17;
+import '../core/infrastructure/infrastructure_module.dart' as _i16;
+import '../core/services/auth/auth_service.dart' as _i11;
+import '../core/services/http/dio_client_creator.dart' as _i12;
+import '../core/services/http/dio_client_module.dart' as _i18;
 import '../features/auth/login/data/datasources/local/login_local_datasource.dart'
     as _i4;
 import '../features/auth/login/data/datasources/remote/login_remote_datasource.dart'
@@ -24,11 +24,13 @@ import '../features/auth/login/data/datasources/remote/login_remote_datasource.d
 import '../features/auth/login/data/repositories/login_repository.dart' as _i7;
 import '../features/auth/login/domain/repositories/login_repository.dart'
     as _i6;
-import '../features/auth/login/presentation/state/login_bloc.dart' as _i12;
+import '../features/auth/login/presentation/state/login_bloc.dart' as _i13;
 import '../features/auth/login/presentation/state/login_form_bloc.dart' as _i8;
+import '../features/auth/register/presentation/state/register_form_bloc.dart'
+    as _i9;
 import '../features/chat/presentation/state/chat_bloc.dart' as _i3;
-import 'router/router.dart' as _i13;
-import 'router/router_module.dart' as _i16;
+import 'router/router.dart' as _i14;
+import 'router/router_module.dart' as _i17;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -51,24 +53,26 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i6.ILoginRepository>(
       () => _i7.LoginRepository(gh<_i5.ILoginRemoteDatasource>()));
   gh.factory<_i8.LoginFormBloc>(() => _i8.LoginFormBloc());
-  gh.lazySingleton<_i9.Talker>(() => infrastructureModule.talker());
-  gh.singleton<_i10.IAuthService>(
-    _i10.AuthService(talker: gh<_i9.Talker>()),
-    dispose: _i10.disposeService,
+  gh.factory<_i9.RegisterFormBloc>(() => _i9.RegisterFormBloc());
+  gh.lazySingleton<_i10.Talker>(() => infrastructureModule.talker());
+  gh.singleton<_i11.IAuthService>(
+    _i11.AuthService(talker: gh<_i10.Talker>()),
+    dispose: _i11.disposeService,
   );
-  gh.singleton<_i11.IDioClientCreator>(_i11.DioClientCreator(gh<_i9.Talker>()));
-  gh.factory<_i12.LoginBloc>(() => _i12.LoginBloc(
-        gh<_i9.Talker>(),
+  gh.singleton<_i12.IDioClientCreator>(
+      _i12.DioClientCreator(gh<_i10.Talker>()));
+  gh.factory<_i13.LoginBloc>(() => _i13.LoginBloc(
+        gh<_i10.Talker>(),
         gh<_i6.ILoginRepository>(),
       ));
-  gh.singleton<_i13.AppRouter>(routerModule.appRouter(gh<_i10.IAuthService>()));
-  gh.singleton<_i14.Dio>(
-      dioClientModule.makeDioClient(gh<_i11.IDioClientCreator>()));
+  gh.singleton<_i14.AppRouter>(routerModule.appRouter(gh<_i11.IAuthService>()));
+  gh.singleton<_i15.Dio>(
+      dioClientModule.makeDioClient(gh<_i12.IDioClientCreator>()));
   return getIt;
 }
 
-class _$InfrastructureModule extends _i15.InfrastructureModule {}
+class _$InfrastructureModule extends _i16.InfrastructureModule {}
 
-class _$RouterModule extends _i16.RouterModule {}
+class _$RouterModule extends _i17.RouterModule {}
 
-class _$DioClientModule extends _i17.DioClientModule {}
+class _$DioClientModule extends _i18.DioClientModule {}
