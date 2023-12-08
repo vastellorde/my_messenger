@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:my_messenger/core/utils/either/either.dart';
@@ -20,9 +19,6 @@ class RegisterRemoteDatasource implements IRegisterRemoteDatasource {
           .createUserWithEmailAndPassword(
               email: request.email, password: request.password);
 
-      final db = FirebaseFirestore.instance;
-      final user = request.toJson()..remove('password');
-      await db.collection('users').add(user);
       return Either.right(credentials);
     } on FirebaseAuthException catch (e) {
       return Either.left(AuthFailure(reason: e.code));
