@@ -12,11 +12,11 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(
-          page: HomeRoute.page,
-          path: '/',
-          initial: true,
-        ),
+        AutoRoute(page: HomeRoute.page, path: '/', initial: true, children: [
+          RedirectRoute(path: '', redirectTo: 'chat_list'),
+          AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
+          AutoRoute(page: ProfileRoute.page, path: 'profile'),
+        ]),
         AutoRoute(
           page: AuthRoute.page,
           path: '/auth',

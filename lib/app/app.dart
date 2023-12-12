@@ -16,6 +16,7 @@ class App extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(
             seedColor: AppColors.primary,
             secondary: AppColors.secondary,
+            background: AppColors.background,
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: AppColors.background,
