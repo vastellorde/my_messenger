@@ -26,36 +26,45 @@ class ProfilePage extends StatelessWidget {
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   sliver: SliverList.list(
-                    children: ListTile.divideTiles(
-                      tiles: const [
-                        ListTile(
-                          title: Text('Theme'),
-                          tileColor: Colors.white,
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
+                    children: [
+                      ...ListTile.divideTiles(
+                        tiles: const [
+                          ListTile(
+                            title: Text('Theme'),
+                            tileColor: Colors.white,
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16,
+                            ),
                           ),
-                        ),
-                        ListTile(
-                          title: Text('Language'),
-                          tileColor: Colors.white,
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
+                          ListTile(
+                            title: Text('Language'),
+                            tileColor: Colors.white,
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16,
+                            ),
                           ),
-                        ),
-                        ListTile(
-                          title: Text('Security'),
-                          tileColor: Colors.white,
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
+                          ListTile(
+                            title: Text('Security'),
+                            tileColor: Colors.white,
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16,
+                            ),
                           ),
-                        ),
-                      ],
-                      context: context,
-                      color: AppColors.gray,
-                    ).toList(),
+                        ],
+                        context: context,
+                        color: AppColors.gray,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            context
+                                .read<ProfileBloc>()
+                                .add(const ProfileEvent.logOut());
+                          },
+                          child: const Text('Logout')),
+                    ],
                   ),
                 ),
               ],
