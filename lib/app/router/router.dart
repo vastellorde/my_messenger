@@ -1,14 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_messenger/app/router/router.gr.dart';
-import 'package:my_messenger/core/services/auth/auth_service.dart';
 
 @AutoRouterConfig()
 class AppRouter extends $AppRouter implements AutoRouteGuard {
-  final IAuthService authService;
-
-  AppRouter({
-    required this.authService,
-  });
+  AppRouter();
 
   @override
   List<AutoRoute> get routes => [
@@ -47,7 +43,8 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (authService.isLoggedIn ||
+    final isLoggedIn = FirebaseAuth.instance.currentUser != null;
+    if (isLoggedIn ||
         resolver.routeName == AuthRoute.name ||
         resolver.routeName == LoginRoute.name ||
         resolver.routeName == RegisterRoute.name) {

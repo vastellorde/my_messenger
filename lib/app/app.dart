@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_messenger/app/router/router.dart';
 import 'package:my_messenger/app/theme/app_colors.dart';
-import 'package:my_messenger/core/services/auth/auth_service.dart';
 import 'package:my_messenger/features/profile/presentation/state/profile_bloc.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
@@ -57,7 +57,7 @@ class App extends StatelessWidget {
                 ),
               ],
               reevaluateListenable: ReevaluateListenable.stream(
-                GetIt.I.get<IAuthService>().authStream.distinct(),
+                FirebaseAuth.instance.userChanges().distinct(),
               ),
             ),
       ),

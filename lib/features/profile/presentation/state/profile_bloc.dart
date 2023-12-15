@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_messenger/core/services/auth/auth_service.dart';
 import 'package:my_messenger/core/services/user/models/user_model.dart';
 import 'package:my_messenger/core/services/user/user_service.dart';
 
@@ -13,10 +12,8 @@ part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final IAuthService _authService;
   final IUserService _userService;
   ProfileBloc(
-    this._authService,
     this._userService,
   ) : super(const ProfileState.unAuthorized()) {
     on<ProfileEvent>(_onProfile);

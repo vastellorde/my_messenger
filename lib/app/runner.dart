@@ -5,7 +5,6 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:my_messenger/app/app.dart';
 import 'package:my_messenger/app/runner.config.dart';
-import 'package:my_messenger/core/services/auth/auth_service.dart';
 import 'package:my_messenger/firebase_options.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 
@@ -27,6 +26,5 @@ class Runner {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    GetIt.I.get<IAuthService>().init();
   }
 }
