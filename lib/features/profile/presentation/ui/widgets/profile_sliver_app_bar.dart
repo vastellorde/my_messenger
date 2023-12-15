@@ -4,6 +4,10 @@ import 'package:my_messenger/core/tweens/double_tween.dart';
 import 'package:my_messenger/features/profile/presentation/ui/widgets/profile_avatar.dart';
 
 class ProfileSliverAppBar extends SliverPersistentHeaderDelegate {
+  final String username;
+
+  ProfileSliverAppBar({required this.username});
+
   final _avatarAlignTween =
       AlignmentTween(begin: Alignment.bottomCenter, end: Alignment.topCenter);
 
@@ -71,6 +75,6 @@ class ProfileSliverAppBar extends SliverPersistentHeaderDelegate {
   double get minExtent => 80;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      false;
+  bool shouldRebuild(covariant ProfileSliverAppBar oldDelegate) =>
+      username != oldDelegate.username;
 }

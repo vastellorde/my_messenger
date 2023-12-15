@@ -43,7 +43,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         );
       },
       right: (r) async {
-        final user = User(
+        final user = UserModel(
           username: event.request.username,
           email: event.request.email,
           id: res.right.user?.uid ?? '',

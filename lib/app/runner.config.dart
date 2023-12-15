@@ -8,15 +8,15 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i20;
+import 'package:dio/dio.dart' as _i21;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:talker_flutter/talker_flutter.dart' as _i15;
 
-import '../core/infrastructure/infrastructure_module.dart' as _i21;
+import '../core/infrastructure/infrastructure_module.dart' as _i22;
 import '../core/services/auth/auth_service.dart' as _i16;
 import '../core/services/http/dio_client_creator.dart' as _i17;
-import '../core/services/http/dio_client_module.dart' as _i23;
+import '../core/services/http/dio_client_module.dart' as _i24;
 import '../core/services/user/user_service.dart' as _i11;
 import '../features/auth/login/data/datasources/local/login_local_datasource.dart'
     as _i4;
@@ -38,8 +38,9 @@ import '../features/auth/register/presentation/state/register_bloc.dart'
 import '../features/auth/register/presentation/state/register_form_bloc.dart'
     as _i14;
 import '../features/chat/presentation/state/chat_bloc.dart' as _i3;
-import 'router/router.dart' as _i19;
-import 'router/router_module.dart' as _i22;
+import '../features/profile/presentation/state/profile_bloc.dart' as _i19;
+import 'router/router.dart' as _i20;
+import 'router/router_module.dart' as _i23;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -83,14 +84,18 @@ _i1.GetIt $initGetIt(
         gh<_i15.Talker>(),
         gh<_i6.ILoginRepository>(),
       ));
-  gh.singleton<_i19.AppRouter>(routerModule.appRouter(gh<_i16.IAuthService>()));
-  gh.singleton<_i20.Dio>(
+  gh.factory<_i19.ProfileBloc>(() => _i19.ProfileBloc(
+        gh<_i16.IAuthService>(),
+        gh<_i11.IUserService>(),
+      ));
+  gh.singleton<_i20.AppRouter>(routerModule.appRouter(gh<_i16.IAuthService>()));
+  gh.singleton<_i21.Dio>(
       dioClientModule.makeDioClient(gh<_i17.IDioClientCreator>()));
   return getIt;
 }
 
-class _$InfrastructureModule extends _i21.InfrastructureModule {}
+class _$InfrastructureModule extends _i22.InfrastructureModule {}
 
-class _$RouterModule extends _i22.RouterModule {}
+class _$RouterModule extends _i23.RouterModule {}
 
-class _$DioClientModule extends _i23.DioClientModule {}
+class _$DioClientModule extends _i24.DioClientModule {}

@@ -4,16 +4,17 @@ part 'user_model.freezed.dart';
 part 'user_model.g.dart';
 
 @Freezed(fromJson: true, toJson: true)
-class User with _$User {
+class UserModel with _$UserModel {
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory User({
+  const factory UserModel({
     required String username,
     required String email,
     required String id,
     required bool isOnline,
     @Default([]) List<String> roomIds,
-  }) = _User;
+  }) = _UserModel;
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 }
