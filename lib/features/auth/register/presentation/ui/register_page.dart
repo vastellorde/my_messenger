@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_messenger/app/router/router.gr.dart';
+import 'package:my_messenger/app/theme/app_theme.dart';
 import 'package:my_messenger/features/auth/register/presentation/state/register_bloc.dart';
 import 'package:my_messenger/features/auth/register/presentation/state/register_form_bloc.dart';
 import 'package:my_messenger/features/auth/register/presentation/ui/widgets/register_email_input.dart';
@@ -74,6 +75,7 @@ class RegisterPage extends StatelessWidget {
               RegisterSubmitButton()
             ],
           ),
+          backgroundColor: context.appTheme.white,
         ),
       ),
     );

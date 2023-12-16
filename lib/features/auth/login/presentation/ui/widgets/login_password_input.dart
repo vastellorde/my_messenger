@@ -43,13 +43,9 @@ class LoginPasswordInput extends StatelessWidget {
                 ),
             decoration: const InputDecoration(
               label: Text('Password'),
-              border: OutlineInputBorder(),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.deepPurple,
               ),
-              enabledBorder: OutlineInputBorder(),
-              errorBorder: OutlineInputBorder(),
             ),
           ),
         );

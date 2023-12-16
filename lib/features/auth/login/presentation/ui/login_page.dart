@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:my_messenger/app/theme/app_theme.dart';
 import 'package:my_messenger/features/auth/login/presentation/state/login_bloc.dart';
 import 'package:my_messenger/features/auth/login/presentation/state/login_bloc_models.dart';
 import 'package:my_messenger/features/auth/login/presentation/state/login_form_bloc.dart';
@@ -75,6 +76,7 @@ class LoginPage extends StatelessWidget {
               LoginRegisterButton(),
             ],
           ),
+          backgroundColor: context.appTheme.white,
         ),
       ),
     );

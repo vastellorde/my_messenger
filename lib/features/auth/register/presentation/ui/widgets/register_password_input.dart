@@ -44,11 +44,7 @@ class RegisterPasswordInput extends StatelessWidget {
               label: Text('Password'),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.deepPurple,
               ),
-              border: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder(),
-              errorBorder: OutlineInputBorder(),
             ),
           ),
         );

@@ -43,11 +43,7 @@ class RegisterNameInput extends StatelessWidget {
               label: Text('Username'),
               prefixIcon: Icon(
                 Icons.people,
-                color: Colors.deepPurple,
               ),
-              border: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder(),
-              errorBorder: OutlineInputBorder(),
             ),
           ),
         );

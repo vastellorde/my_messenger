@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_messenger/app/theme/app_colors.dart';
@@ -8,6 +9,7 @@ part 'app_theme.tailor.dart';
 @Tailor(
   themes: ['light', 'dark'],
   themeGetter: ThemeGetter.onBuildContext,
+  generateStaticGetters: true,
 )
 class $_AppTheme {
   // Colors

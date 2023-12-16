@@ -45,11 +45,7 @@ class RegisterRepeatPasswordInput extends StatelessWidget {
               label: Text('Repeat password'),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.deepPurple,
               ),
-              border: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder(),
-              errorBorder: OutlineInputBorder(),
             ),
           ),
         );

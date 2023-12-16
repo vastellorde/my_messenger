@@ -45,11 +45,7 @@ class LoginEmailInput extends StatelessWidget {
               label: Text('Email'),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.deepPurple,
               ),
-              border: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder(),
-              errorBorder: OutlineInputBorder(),
             ),
           ),
         );

@@ -8,7 +8,7 @@ part of 'app_theme.dart';
 // TailorAnnotationsGenerator
 // **************************************************************************
 
-class AppTheme extends ThemeExtension<AppTheme> {
+class AppTheme extends ThemeExtension<AppTheme> with DiagnosticableTreeMixin {
   const AppTheme({
     required this.background,
     required this.black,
@@ -41,7 +41,28 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color secondary;
   final Color white;
 
-  static final AppTheme light = AppTheme(
+  static AppTheme get light => kDebugMode ? _lightGetter : _lightFinal;
+
+  static AppTheme get dark => kDebugMode ? _darkGetter : _darkFinal;
+
+  static AppTheme get _lightGetter => AppTheme(
+        background: $_AppTheme.background[0],
+        black: $_AppTheme.black[0],
+        body: $_AppTheme.body[0],
+        caption: $_AppTheme.caption[0],
+        gray: $_AppTheme.gray[0],
+        graySecondary: $_AppTheme.graySecondary[0],
+        h1: $_AppTheme.h1[0],
+        h2: $_AppTheme.h2[0],
+        h3: $_AppTheme.h3[0],
+        h4: $_AppTheme.h4[0],
+        h5: $_AppTheme.h5[0],
+        primary: $_AppTheme.primary[0],
+        secondary: $_AppTheme.secondary[0],
+        white: $_AppTheme.white[0],
+      );
+
+  static final AppTheme _lightFinal = AppTheme(
     background: $_AppTheme.background[0],
     black: $_AppTheme.black[0],
     body: $_AppTheme.body[0],
@@ -58,7 +79,24 @@ class AppTheme extends ThemeExtension<AppTheme> {
     white: $_AppTheme.white[0],
   );
 
-  static final AppTheme dark = AppTheme(
+  static AppTheme get _darkGetter => AppTheme(
+        background: $_AppTheme.background[1],
+        black: $_AppTheme.black[1],
+        body: $_AppTheme.body[1],
+        caption: $_AppTheme.caption[1],
+        gray: $_AppTheme.gray[1],
+        graySecondary: $_AppTheme.graySecondary[1],
+        h1: $_AppTheme.h1[1],
+        h2: $_AppTheme.h2[1],
+        h3: $_AppTheme.h3[1],
+        h4: $_AppTheme.h4[1],
+        h5: $_AppTheme.h5[1],
+        primary: $_AppTheme.primary[1],
+        secondary: $_AppTheme.secondary[1],
+        white: $_AppTheme.white[1],
+      );
+
+  static final AppTheme _darkFinal = AppTheme(
     background: $_AppTheme.background[1],
     black: $_AppTheme.black[1],
     body: $_AppTheme.body[1],
@@ -134,6 +172,27 @@ class AppTheme extends ThemeExtension<AppTheme> {
       secondary: Color.lerp(secondary, other.secondary, t)!,
       white: Color.lerp(white, other.white, t)!,
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AppTheme'))
+      ..add(DiagnosticsProperty('background', background))
+      ..add(DiagnosticsProperty('black', black))
+      ..add(DiagnosticsProperty('body', body))
+      ..add(DiagnosticsProperty('caption', caption))
+      ..add(DiagnosticsProperty('gray', gray))
+      ..add(DiagnosticsProperty('graySecondary', graySecondary))
+      ..add(DiagnosticsProperty('h1', h1))
+      ..add(DiagnosticsProperty('h2', h2))
+      ..add(DiagnosticsProperty('h3', h3))
+      ..add(DiagnosticsProperty('h4', h4))
+      ..add(DiagnosticsProperty('h5', h5))
+      ..add(DiagnosticsProperty('primary', primary))
+      ..add(DiagnosticsProperty('secondary', secondary))
+      ..add(DiagnosticsProperty('white', white));
   }
 
   @override
