@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppThemeNofifier(),
       child: BlocProvider<ProfileBloc>(
-        create: (context) => GetIt.I.get()..add(const ProfileEvent.init()),
+        create: (context) => GetIt.I.get(),
         lazy: false,
         child: Consumer<AppThemeNofifier>(
           builder: (context, theme, _) {

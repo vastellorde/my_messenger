@@ -2,8 +2,10 @@ part of 'profile_bloc.dart';
 
 @freezed
 sealed class ProfileEvent with _$ProfileEvent {
-  const factory ProfileEvent.init() = _InitProfile;
-  const factory ProfileEvent.logOut() = _LogoutProfile;
+  const factory ProfileEvent.authorize({
+    required UserModel user,
+  }) = _AuthorizeProfile;
+  const factory ProfileEvent.unAuthorize() = _UnAuthorizeProfile;
 }
 
 @freezed

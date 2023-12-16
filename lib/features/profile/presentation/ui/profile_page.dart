@@ -59,9 +59,9 @@ class ProfilePage extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            context
-                                .read<ProfileBloc>()
-                                .add(const ProfileEvent.logOut());
+                            context.read<ProfileBloc>().add(
+                                  const ProfileEvent.unAuthorize(),
+                                );
                           },
                           child: const Text('Logout')),
                     ],

@@ -13,33 +13,53 @@ part 'profile_bloc.freezed.dart';
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final IUserService _userService;
+  StreamSubscription? _authSubscription;
   ProfileBloc(
     this._userService,
-  ) : super(const ProfileState.unAuthorized()) {
+  ) : super(
+          const ProfileState.unAuthorized(),
+        ) {
     on<ProfileEvent>(_onProfile);
+    _authSubscription = FirebaseAuth.instance.userChanges().distinct().listen(
+          _handleUserChanges,
+        );
   }
 
   FutureOr<void> _onProfile(
       ProfileEvent event, Emitter<ProfileState> emit) async {
     final auth = FirebaseAuth.instance;
     await event.when(
-      init: () async {
-        final uid = auth.currentUser?.uid;
-        if (uid != null) {
-          final user = await _userService.getUser(uid);
-
-          user.when(
-            // TODO(vastellorde): implement error state
-            left: (failure) {},
-            right: (user) {
-              emit(ProfileState.authorized(user: user));
-            },
-          );
-        }
+      authorize: (user) {
+        emit(ProfileState.authorized(user: user));
       },
-      logOut: () async {
+      unAuthorize: () async {
         await auth.signOut();
+        emit(const ProfileState.unAuthorized());
       },
     );
+  }
+
+  FutureOr<void> _handleUserChanges(User? fbUser) async {
+    if (fbUser != null) {
+      final uid = fbUser.uid;
+      final user = await _userService.getUser(uid);
+
+      user.when(
+        left: (failure) {
+          add(const ProfileEvent.unAuthorize());
+        },
+        right: (user) {
+          add(ProfileEvent.authorize(user: user));
+        },
+      );
+    } else {
+      add(const ProfileEvent.unAuthorize());
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _authSubscription?.cancel();
+    return super.close();
   }
 }

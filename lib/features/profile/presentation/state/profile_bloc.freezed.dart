@@ -18,39 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() logOut,
+    required TResult Function(UserModel user) authorize,
+    required TResult Function() unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? logOut,
+    TResult? Function(UserModel user)? authorize,
+    TResult? Function()? unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? logOut,
+    TResult Function(UserModel user)? authorize,
+    TResult Function()? unAuthorize,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitProfile value) init,
-    required TResult Function(_LogoutProfile value) logOut,
+    required TResult Function(_AuthorizeProfile value) authorize,
+    required TResult Function(_UnAuthorizeProfile value) unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitProfile value)? init,
-    TResult? Function(_LogoutProfile value)? logOut,
+    TResult? Function(_AuthorizeProfile value)? authorize,
+    TResult? Function(_UnAuthorizeProfile value)? unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitProfile value)? init,
-    TResult Function(_LogoutProfile value)? logOut,
+    TResult Function(_AuthorizeProfile value)? authorize,
+    TResult Function(_UnAuthorizeProfile value)? unAuthorize,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,35 +75,180 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$InitProfileImplCopyWith<$Res> {
-  factory _$$InitProfileImplCopyWith(
-          _$InitProfileImpl value, $Res Function(_$InitProfileImpl) then) =
-      __$$InitProfileImplCopyWithImpl<$Res>;
+abstract class _$$AuthorizeProfileImplCopyWith<$Res> {
+  factory _$$AuthorizeProfileImplCopyWith(_$AuthorizeProfileImpl value,
+          $Res Function(_$AuthorizeProfileImpl) then) =
+      __$$AuthorizeProfileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$$InitProfileImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$InitProfileImpl>
-    implements _$$InitProfileImplCopyWith<$Res> {
-  __$$InitProfileImplCopyWithImpl(
-      _$InitProfileImpl _value, $Res Function(_$InitProfileImpl) _then)
+class __$$AuthorizeProfileImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$AuthorizeProfileImpl>
+    implements _$$AuthorizeProfileImplCopyWith<$Res> {
+  __$$AuthorizeProfileImplCopyWithImpl(_$AuthorizeProfileImpl _value,
+      $Res Function(_$AuthorizeProfileImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$AuthorizeProfileImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$InitProfileImpl implements _InitProfile {
-  const _$InitProfileImpl();
+class _$AuthorizeProfileImpl implements _AuthorizeProfile {
+  const _$AuthorizeProfileImpl({required this.user});
+
+  @override
+  final UserModel user;
 
   @override
   String toString() {
-    return 'ProfileEvent.init()';
+    return 'ProfileEvent.authorize(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitProfileImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthorizeProfileImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthorizeProfileImplCopyWith<_$AuthorizeProfileImpl> get copyWith =>
+      __$$AuthorizeProfileImplCopyWithImpl<_$AuthorizeProfileImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserModel user) authorize,
+    required TResult Function() unAuthorize,
+  }) {
+    return authorize(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserModel user)? authorize,
+    TResult? Function()? unAuthorize,
+  }) {
+    return authorize?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserModel user)? authorize,
+    TResult Function()? unAuthorize,
+    required TResult orElse(),
+  }) {
+    if (authorize != null) {
+      return authorize(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthorizeProfile value) authorize,
+    required TResult Function(_UnAuthorizeProfile value) unAuthorize,
+  }) {
+    return authorize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthorizeProfile value)? authorize,
+    TResult? Function(_UnAuthorizeProfile value)? unAuthorize,
+  }) {
+    return authorize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthorizeProfile value)? authorize,
+    TResult Function(_UnAuthorizeProfile value)? unAuthorize,
+    required TResult orElse(),
+  }) {
+    if (authorize != null) {
+      return authorize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthorizeProfile implements ProfileEvent {
+  const factory _AuthorizeProfile({required final UserModel user}) =
+      _$AuthorizeProfileImpl;
+
+  UserModel get user;
+  @JsonKey(ignore: true)
+  _$$AuthorizeProfileImplCopyWith<_$AuthorizeProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnAuthorizeProfileImplCopyWith<$Res> {
+  factory _$$UnAuthorizeProfileImplCopyWith(_$UnAuthorizeProfileImpl value,
+          $Res Function(_$UnAuthorizeProfileImpl) then) =
+      __$$UnAuthorizeProfileImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnAuthorizeProfileImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$UnAuthorizeProfileImpl>
+    implements _$$UnAuthorizeProfileImplCopyWith<$Res> {
+  __$$UnAuthorizeProfileImplCopyWithImpl(_$UnAuthorizeProfileImpl _value,
+      $Res Function(_$UnAuthorizeProfileImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UnAuthorizeProfileImpl implements _UnAuthorizeProfile {
+  const _$UnAuthorizeProfileImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.unAuthorize()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnAuthorizeProfileImpl);
   }
 
   @override
@@ -112,30 +257,30 @@ class _$InitProfileImpl implements _InitProfile {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() logOut,
+    required TResult Function(UserModel user) authorize,
+    required TResult Function() unAuthorize,
   }) {
-    return init();
+    return unAuthorize();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? logOut,
+    TResult? Function(UserModel user)? authorize,
+    TResult? Function()? unAuthorize,
   }) {
-    return init?.call();
+    return unAuthorize?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? logOut,
+    TResult Function(UserModel user)? authorize,
+    TResult Function()? unAuthorize,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init();
+    if (unAuthorize != null) {
+      return unAuthorize();
     }
     return orElse();
   }
@@ -143,139 +288,37 @@ class _$InitProfileImpl implements _InitProfile {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitProfile value) init,
-    required TResult Function(_LogoutProfile value) logOut,
+    required TResult Function(_AuthorizeProfile value) authorize,
+    required TResult Function(_UnAuthorizeProfile value) unAuthorize,
   }) {
-    return init(this);
+    return unAuthorize(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitProfile value)? init,
-    TResult? Function(_LogoutProfile value)? logOut,
+    TResult? Function(_AuthorizeProfile value)? authorize,
+    TResult? Function(_UnAuthorizeProfile value)? unAuthorize,
   }) {
-    return init?.call(this);
+    return unAuthorize?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitProfile value)? init,
-    TResult Function(_LogoutProfile value)? logOut,
+    TResult Function(_AuthorizeProfile value)? authorize,
+    TResult Function(_UnAuthorizeProfile value)? unAuthorize,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (unAuthorize != null) {
+      return unAuthorize(this);
     }
     return orElse();
   }
 }
 
-abstract class _InitProfile implements ProfileEvent {
-  const factory _InitProfile() = _$InitProfileImpl;
-}
-
-/// @nodoc
-abstract class _$$LogoutProfileImplCopyWith<$Res> {
-  factory _$$LogoutProfileImplCopyWith(
-          _$LogoutProfileImpl value, $Res Function(_$LogoutProfileImpl) then) =
-      __$$LogoutProfileImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LogoutProfileImplCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$LogoutProfileImpl>
-    implements _$$LogoutProfileImplCopyWith<$Res> {
-  __$$LogoutProfileImplCopyWithImpl(
-      _$LogoutProfileImpl _value, $Res Function(_$LogoutProfileImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LogoutProfileImpl implements _LogoutProfile {
-  const _$LogoutProfileImpl();
-
-  @override
-  String toString() {
-    return 'ProfileEvent.logOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LogoutProfileImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() logOut,
-  }) {
-    return logOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? logOut,
-  }) {
-    return logOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? logOut,
-    required TResult orElse(),
-  }) {
-    if (logOut != null) {
-      return logOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitProfile value) init,
-    required TResult Function(_LogoutProfile value) logOut,
-  }) {
-    return logOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitProfile value)? init,
-    TResult? Function(_LogoutProfile value)? logOut,
-  }) {
-    return logOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitProfile value)? init,
-    TResult Function(_LogoutProfile value)? logOut,
-    required TResult orElse(),
-  }) {
-    if (logOut != null) {
-      return logOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LogoutProfile implements ProfileEvent {
-  const factory _LogoutProfile() = _$LogoutProfileImpl;
+abstract class _UnAuthorizeProfile implements ProfileEvent {
+  const factory _UnAuthorizeProfile() = _$UnAuthorizeProfileImpl;
 }
 
 /// @nodoc
