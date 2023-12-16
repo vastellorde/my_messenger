@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_messenger/app/router/router.dart';
-import 'package:my_messenger/app/theme/app_colors.dart';
+import 'package:my_messenger/app/theme/app_theme_data.dart';
+import 'package:my_messenger/app/theme/app_theme_notifier.dart';
 import 'package:my_messenger/features/profile/presentation/state/profile_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 class App extends StatelessWidget {
@@ -13,53 +15,30 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProfileBloc>(
-      create: (context) => GetIt.I.get()..add(const ProfileEvent.init()),
-      lazy: false,
-      child: MaterialApp.router(
-        theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: AppColors.primary,
-              secondary: AppColors.secondary,
-              background: AppColors.background,
-            ),
-            inputDecorationTheme: InputDecorationTheme(
-              fillColor: AppColors.background,
-              filled: true,
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(
-                    width: 1,
-                    color: AppColors.background,
-                    style: BorderStyle.none),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(
-                    width: 0,
-                    color: AppColors.background,
-                    style: BorderStyle.none),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(
-                    width: 0,
-                    color: AppColors.background,
-                    style: BorderStyle.none),
-              ),
-            )),
-        routerConfig: GetIt.I.get<AppRouter>().config(
-              navigatorObservers: () => [
-                TalkerRouteObserver(
-                  GetIt.I.get<Talker>(),
-                ),
-              ],
-              reevaluateListenable: ReevaluateListenable.stream(
-                FirebaseAuth.instance.userChanges().distinct(),
-              ),
-            ),
+    return ChangeNotifierProvider(
+      create: (_) => AppThemeNofifier(),
+      child: BlocProvider<ProfileBloc>(
+        create: (context) => GetIt.I.get()..add(const ProfileEvent.init()),
+        lazy: false,
+        child: Consumer<AppThemeNofifier>(
+          builder: (context, theme, _) {
+            return MaterialApp.router(
+              themeMode: theme.mode,
+              theme: AppThemeData.light,
+              darkTheme: AppThemeData.dark,
+              routerConfig: GetIt.I.get<AppRouter>().config(
+                    navigatorObservers: () => [
+                      TalkerRouteObserver(
+                        GetIt.I.get<Talker>(),
+                      ),
+                    ],
+                    reevaluateListenable: ReevaluateListenable.stream(
+                      FirebaseAuth.instance.userChanges().distinct(),
+                    ),
+                  ),
+            );
+          },
+        ),
       ),
     );
   }
