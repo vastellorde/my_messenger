@@ -1,15 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'message.freezed.dart';
+part 'message.g.dart';
 
-enum MessageType { received, sent }
-
-@freezed
+@Freezed(
+  fromJson: true,
+  toJson: true,
+)
 class Message with _$Message {
-  const factory Message.text({
+  const factory Message({
     required String uid,
     required String text,
     required DateTime time,
-    required MessageType type,
-  }) = _TextMessage;
+    required String senderUid,
+    required String receiverUid,
+    required String roomId,
+    String? imageUrl,
+    String? documentUrl,
+  }) = _Message;
+
+  factory Message.fromJson(Map<String, dynamic> json) =>
+      _$MessageFromJson(json);
 }

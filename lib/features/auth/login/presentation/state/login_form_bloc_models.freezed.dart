@@ -199,7 +199,7 @@ class _$LoginFormStateImpl implements _LoginFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginFormStateImpl &&
@@ -370,7 +370,7 @@ class _$EmailChangedImpl implements _EmailChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmailChangedImpl &&
@@ -517,7 +517,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PasswordChangedImpl &&
@@ -648,7 +648,7 @@ class _$SubmitImpl implements _Submit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SubmitImpl);
   }
@@ -765,7 +765,7 @@ class _$ObscurePasswordChangedImpl implements _ObscurePasswordChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ObscurePasswordChangedImpl);

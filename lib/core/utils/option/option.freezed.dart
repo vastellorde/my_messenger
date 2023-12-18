@@ -118,7 +118,7 @@ class _$SomeImpl<T> extends _Some<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SomeImpl<T> &&
@@ -235,7 +235,7 @@ class _$NoneImpl<T> extends _None<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$NoneImpl<T>);
   }

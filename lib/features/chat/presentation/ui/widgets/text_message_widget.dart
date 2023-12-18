@@ -9,9 +9,7 @@ class TextMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: message.type == MessageType.received
-          ? MainAxisAlignment.start
-          : MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(

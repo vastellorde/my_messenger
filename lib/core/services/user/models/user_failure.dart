@@ -4,5 +4,6 @@ part 'user_failure.freezed.dart';
 
 @freezed
 sealed class UserFailure with _$UserFailure {
-  const factory UserFailure.notExist() = _UserNotExist;
+  const factory UserFailure.notExist() = _UserNotExistFailure;
+  const factory UserFailure.unknown() = _UserUnknownFailure;
 }

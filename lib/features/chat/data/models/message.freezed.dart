@@ -14,49 +14,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Message _$MessageFromJson(Map<String, dynamic> json) {
+  return _Message.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Message {
   String get uid => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
-  MessageType get type => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String uid, String text, DateTime time, MessageType type)
-        text,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String uid, String text, DateTime time, MessageType type)?
-        text,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String uid, String text, DateTime time, MessageType type)?
-        text,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TextMessage value) text,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TextMessage value)? text,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TextMessage value)? text,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  String get senderUid => throw _privateConstructorUsedError;
+  String get receiverUid => throw _privateConstructorUsedError;
+  String get roomId => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get documentUrl => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
 }
@@ -66,7 +39,15 @@ abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res, Message>;
   @useResult
-  $Res call({String uid, String text, DateTime time, MessageType type});
+  $Res call(
+      {String uid,
+      String text,
+      DateTime time,
+      String senderUid,
+      String receiverUid,
+      String roomId,
+      String? imageUrl,
+      String? documentUrl});
 }
 
 /// @nodoc
@@ -85,7 +66,11 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
     Object? uid = null,
     Object? text = null,
     Object? time = null,
-    Object? type = null,
+    Object? senderUid = null,
+    Object? receiverUid = null,
+    Object? roomId = null,
+    Object? imageUrl = freezed,
+    Object? documentUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -100,31 +85,54 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MessageType,
+      senderUid: null == senderUid
+          ? _value.senderUid
+          : senderUid // ignore: cast_nullable_to_non_nullable
+              as String,
+      receiverUid: null == receiverUid
+          ? _value.receiverUid
+          : receiverUid // ignore: cast_nullable_to_non_nullable
+              as String,
+      roomId: null == roomId
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      documentUrl: freezed == documentUrl
+          ? _value.documentUrl
+          : documentUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$TextMessageImplCopyWith<$Res>
-    implements $MessageCopyWith<$Res> {
-  factory _$$TextMessageImplCopyWith(
-          _$TextMessageImpl value, $Res Function(_$TextMessageImpl) then) =
-      __$$TextMessageImplCopyWithImpl<$Res>;
+abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
+  factory _$$MessageImplCopyWith(
+          _$MessageImpl value, $Res Function(_$MessageImpl) then) =
+      __$$MessageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uid, String text, DateTime time, MessageType type});
+  $Res call(
+      {String uid,
+      String text,
+      DateTime time,
+      String senderUid,
+      String receiverUid,
+      String roomId,
+      String? imageUrl,
+      String? documentUrl});
 }
 
 /// @nodoc
-class __$$TextMessageImplCopyWithImpl<$Res>
-    extends _$MessageCopyWithImpl<$Res, _$TextMessageImpl>
-    implements _$$TextMessageImplCopyWith<$Res> {
-  __$$TextMessageImplCopyWithImpl(
-      _$TextMessageImpl _value, $Res Function(_$TextMessageImpl) _then)
+class __$$MessageImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$MessageImpl>
+    implements _$$MessageImplCopyWith<$Res> {
+  __$$MessageImplCopyWithImpl(
+      _$MessageImpl _value, $Res Function(_$MessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,9 +141,13 @@ class __$$TextMessageImplCopyWithImpl<$Res>
     Object? uid = null,
     Object? text = null,
     Object? time = null,
-    Object? type = null,
+    Object? senderUid = null,
+    Object? receiverUid = null,
+    Object? roomId = null,
+    Object? imageUrl = freezed,
+    Object? documentUrl = freezed,
   }) {
-    return _then(_$TextMessageImpl(
+    return _then(_$MessageImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -148,22 +160,45 @@ class __$$TextMessageImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MessageType,
+      senderUid: null == senderUid
+          ? _value.senderUid
+          : senderUid // ignore: cast_nullable_to_non_nullable
+              as String,
+      receiverUid: null == receiverUid
+          ? _value.receiverUid
+          : receiverUid // ignore: cast_nullable_to_non_nullable
+              as String,
+      roomId: null == roomId
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      documentUrl: freezed == documentUrl
+          ? _value.documentUrl
+          : documentUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-
-class _$TextMessageImpl implements _TextMessage {
-  const _$TextMessageImpl(
+@JsonSerializable()
+class _$MessageImpl implements _Message {
+  const _$MessageImpl(
       {required this.uid,
       required this.text,
       required this.time,
-      required this.type});
+      required this.senderUid,
+      required this.receiverUid,
+      required this.roomId,
+      this.imageUrl,
+      this.documentUrl});
+
+  factory _$MessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageImplFromJson(json);
 
   @override
   final String uid;
@@ -172,100 +207,71 @@ class _$TextMessageImpl implements _TextMessage {
   @override
   final DateTime time;
   @override
-  final MessageType type;
+  final String senderUid;
+  @override
+  final String receiverUid;
+  @override
+  final String roomId;
+  @override
+  final String? imageUrl;
+  @override
+  final String? documentUrl;
 
   @override
   String toString() {
-    return 'Message.text(uid: $uid, text: $text, time: $time, type: $type)';
+    return 'Message(uid: $uid, text: $text, time: $time, senderUid: $senderUid, receiverUid: $receiverUid, roomId: $roomId, imageUrl: $imageUrl, documentUrl: $documentUrl)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TextMessageImpl &&
+            other is _$MessageImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.time, time) || other.time == time) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.senderUid, senderUid) ||
+                other.senderUid == senderUid) &&
+            (identical(other.receiverUid, receiverUid) ||
+                other.receiverUid == receiverUid) &&
+            (identical(other.roomId, roomId) || other.roomId == roomId) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.documentUrl, documentUrl) ||
+                other.documentUrl == documentUrl));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, text, time, type);
+  int get hashCode => Object.hash(runtimeType, uid, text, time, senderUid,
+      receiverUid, roomId, imageUrl, documentUrl);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TextMessageImplCopyWith<_$TextMessageImpl> get copyWith =>
-      __$$TextMessageImplCopyWithImpl<_$TextMessageImpl>(this, _$identity);
+  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
+      __$$MessageImplCopyWithImpl<_$MessageImpl>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String uid, String text, DateTime time, MessageType type)
-        text,
-  }) {
-    return text(uid, this.text, time, type);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String uid, String text, DateTime time, MessageType type)?
-        text,
-  }) {
-    return text?.call(uid, this.text, time, type);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String uid, String text, DateTime time, MessageType type)?
-        text,
-    required TResult orElse(),
-  }) {
-    if (text != null) {
-      return text(uid, this.text, time, type);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TextMessage value) text,
-  }) {
-    return text(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TextMessage value)? text,
-  }) {
-    return text?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TextMessage value)? text,
-    required TResult orElse(),
-  }) {
-    if (text != null) {
-      return text(this);
-    }
-    return orElse();
+  Map<String, dynamic> toJson() {
+    return _$$MessageImplToJson(
+      this,
+    );
   }
 }
 
-abstract class _TextMessage implements Message {
-  const factory _TextMessage(
+abstract class _Message implements Message {
+  const factory _Message(
       {required final String uid,
       required final String text,
       required final DateTime time,
-      required final MessageType type}) = _$TextMessageImpl;
+      required final String senderUid,
+      required final String receiverUid,
+      required final String roomId,
+      final String? imageUrl,
+      final String? documentUrl}) = _$MessageImpl;
+
+  factory _Message.fromJson(Map<String, dynamic> json) = _$MessageImpl.fromJson;
 
   @override
   String get uid;
@@ -274,9 +280,17 @@ abstract class _TextMessage implements Message {
   @override
   DateTime get time;
   @override
-  MessageType get type;
+  String get senderUid;
+  @override
+  String get receiverUid;
+  @override
+  String get roomId;
+  @override
+  String? get imageUrl;
+  @override
+  String? get documentUrl;
   @override
   @JsonKey(ignore: true)
-  _$$TextMessageImplCopyWith<_$TextMessageImpl> get copyWith =>
+  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

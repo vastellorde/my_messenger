@@ -129,7 +129,7 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthorizeProfileImpl &&
@@ -246,7 +246,7 @@ class _$UnAuthorizeProfileImpl implements _UnAuthorizeProfile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnAuthorizeProfileImpl);
   }
@@ -408,7 +408,7 @@ class _$UnAuthorizedProfileImpl implements _UnAuthorizedProfile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnAuthorizedProfileImpl);
@@ -539,7 +539,7 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthorizedProfileImpl &&

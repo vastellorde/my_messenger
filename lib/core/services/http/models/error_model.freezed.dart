@@ -120,7 +120,7 @@ class _$NoNetworkImpl<T> extends _NoNetwork<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$NoNetworkImpl<T>);
   }
@@ -241,7 +241,7 @@ class _$UnAuthorizedImpl<T> extends _UnAuthorized<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnAuthorizedImpl<T>);
   }
@@ -362,7 +362,7 @@ class _$ToManyRequestsImpl<T> extends _ToManyRequests<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ToManyRequestsImpl<T>);
   }
@@ -501,7 +501,7 @@ class _$CustomErrorImpl<T> extends _CustomError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CustomErrorImpl<T> &&
@@ -652,7 +652,7 @@ class _$UndefinedErrorImpl<T> extends _UndefinedError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UndefinedErrorImpl<T> &&
@@ -858,7 +858,7 @@ class _$DefaultApiErrorImpl implements _DefaultApiError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DefaultApiErrorImpl &&

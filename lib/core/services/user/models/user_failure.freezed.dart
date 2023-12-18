@@ -19,32 +19,38 @@ mixin _$UserFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() notExist,
+    required TResult Function() unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notExist,
+    TResult? Function()? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notExist,
+    TResult Function()? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserNotExist value) notExist,
+    required TResult Function(_UserNotExistFailure value) notExist,
+    required TResult Function(_UserUnknownFailure value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserNotExist value)? notExist,
+    TResult? Function(_UserNotExistFailure value)? notExist,
+    TResult? Function(_UserUnknownFailure value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserNotExist value)? notExist,
+    TResult Function(_UserNotExistFailure value)? notExist,
+    TResult Function(_UserUnknownFailure value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,25 +75,25 @@ class _$UserFailureCopyWithImpl<$Res, $Val extends UserFailure>
 }
 
 /// @nodoc
-abstract class _$$UserNotExistImplCopyWith<$Res> {
-  factory _$$UserNotExistImplCopyWith(
-          _$UserNotExistImpl value, $Res Function(_$UserNotExistImpl) then) =
-      __$$UserNotExistImplCopyWithImpl<$Res>;
+abstract class _$$UserNotExistFailureImplCopyWith<$Res> {
+  factory _$$UserNotExistFailureImplCopyWith(_$UserNotExistFailureImpl value,
+          $Res Function(_$UserNotExistFailureImpl) then) =
+      __$$UserNotExistFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserNotExistImplCopyWithImpl<$Res>
-    extends _$UserFailureCopyWithImpl<$Res, _$UserNotExistImpl>
-    implements _$$UserNotExistImplCopyWith<$Res> {
-  __$$UserNotExistImplCopyWithImpl(
-      _$UserNotExistImpl _value, $Res Function(_$UserNotExistImpl) _then)
+class __$$UserNotExistFailureImplCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res, _$UserNotExistFailureImpl>
+    implements _$$UserNotExistFailureImplCopyWith<$Res> {
+  __$$UserNotExistFailureImplCopyWithImpl(_$UserNotExistFailureImpl _value,
+      $Res Function(_$UserNotExistFailureImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserNotExistImpl implements _UserNotExist {
-  const _$UserNotExistImpl();
+class _$UserNotExistFailureImpl implements _UserNotExistFailure {
+  const _$UserNotExistFailureImpl();
 
   @override
   String toString() {
@@ -95,9 +101,10 @@ class _$UserNotExistImpl implements _UserNotExist {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserNotExistImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$UserNotExistFailureImpl);
   }
 
   @override
@@ -107,6 +114,7 @@ class _$UserNotExistImpl implements _UserNotExist {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() notExist,
+    required TResult Function() unknown,
   }) {
     return notExist();
   }
@@ -115,6 +123,7 @@ class _$UserNotExistImpl implements _UserNotExist {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notExist,
+    TResult? Function()? unknown,
   }) {
     return notExist?.call();
   }
@@ -123,6 +132,7 @@ class _$UserNotExistImpl implements _UserNotExist {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notExist,
+    TResult Function()? unknown,
     required TResult orElse(),
   }) {
     if (notExist != null) {
@@ -134,7 +144,8 @@ class _$UserNotExistImpl implements _UserNotExist {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserNotExist value) notExist,
+    required TResult Function(_UserNotExistFailure value) notExist,
+    required TResult Function(_UserUnknownFailure value) unknown,
   }) {
     return notExist(this);
   }
@@ -142,7 +153,8 @@ class _$UserNotExistImpl implements _UserNotExist {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserNotExist value)? notExist,
+    TResult? Function(_UserNotExistFailure value)? notExist,
+    TResult? Function(_UserUnknownFailure value)? unknown,
   }) {
     return notExist?.call(this);
   }
@@ -150,7 +162,8 @@ class _$UserNotExistImpl implements _UserNotExist {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserNotExist value)? notExist,
+    TResult Function(_UserNotExistFailure value)? notExist,
+    TResult Function(_UserUnknownFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (notExist != null) {
@@ -160,6 +173,108 @@ class _$UserNotExistImpl implements _UserNotExist {
   }
 }
 
-abstract class _UserNotExist implements UserFailure {
-  const factory _UserNotExist() = _$UserNotExistImpl;
+abstract class _UserNotExistFailure implements UserFailure {
+  const factory _UserNotExistFailure() = _$UserNotExistFailureImpl;
+}
+
+/// @nodoc
+abstract class _$$UserUnknownFailureImplCopyWith<$Res> {
+  factory _$$UserUnknownFailureImplCopyWith(_$UserUnknownFailureImpl value,
+          $Res Function(_$UserUnknownFailureImpl) then) =
+      __$$UserUnknownFailureImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserUnknownFailureImplCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res, _$UserUnknownFailureImpl>
+    implements _$$UserUnknownFailureImplCopyWith<$Res> {
+  __$$UserUnknownFailureImplCopyWithImpl(_$UserUnknownFailureImpl _value,
+      $Res Function(_$UserUnknownFailureImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserUnknownFailureImpl implements _UserUnknownFailure {
+  const _$UserUnknownFailureImpl();
+
+  @override
+  String toString() {
+    return 'UserFailure.unknown()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserUnknownFailureImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notExist,
+    required TResult Function() unknown,
+  }) {
+    return unknown();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notExist,
+    TResult? Function()? unknown,
+  }) {
+    return unknown?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notExist,
+    TResult Function()? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UserNotExistFailure value) notExist,
+    required TResult Function(_UserUnknownFailure value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UserNotExistFailure value)? notExist,
+    TResult? Function(_UserUnknownFailure value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UserNotExistFailure value)? notExist,
+    TResult Function(_UserUnknownFailure value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserUnknownFailure implements UserFailure {
+  const factory _UserUnknownFailure() = _$UserUnknownFailureImpl;
 }

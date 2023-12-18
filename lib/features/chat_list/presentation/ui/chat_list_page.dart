@@ -23,8 +23,9 @@ class ChatListPage extends StatelessWidget {
             subtitle: const Text('hello!'),
             trailing: DecoratedBox(
               decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  shape: BoxShape.circle),
+                color: Theme.of(context).primaryColor,
+                shape: BoxShape.circle,
+              ),
               child: const Padding(
                 padding: EdgeInsets.all(4.0),
                 child: Text(

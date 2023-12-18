@@ -141,7 +141,7 @@ class _$EmptyImpl<T> implements _Empty<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmptyImpl<T> &&
@@ -280,7 +280,7 @@ class _$InvalidImpl<T> implements _Invalid<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InvalidImpl<T> &&

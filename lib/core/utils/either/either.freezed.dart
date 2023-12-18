@@ -119,7 +119,7 @@ class _$EitherLeftImpl<L, R> extends _EitherLeft<L, R> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EitherLeftImpl<L, R> &&
@@ -255,7 +255,7 @@ class _$EitherRightImpl<L, R> extends _EitherRight<L, R> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EitherRightImpl<L, R> &&

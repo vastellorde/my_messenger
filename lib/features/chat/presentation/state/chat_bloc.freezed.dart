@@ -147,7 +147,7 @@ class _$SendMessageImpl implements _SendMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SendMessageImpl &&
@@ -333,7 +333,7 @@ class _$ChatStateImpl implements _ChatState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatStateImpl &&

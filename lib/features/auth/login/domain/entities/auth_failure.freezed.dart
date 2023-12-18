@@ -101,7 +101,7 @@ class _$ValidationFailureImpl implements _ValidationFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ValidationFailureImpl);
   }
@@ -221,7 +221,7 @@ class _$AuthFailureImpl implements _AuthFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthFailureImpl &&

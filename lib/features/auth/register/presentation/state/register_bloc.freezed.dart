@@ -116,7 +116,7 @@ class _$RegisterStateImpl implements _RegisterState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterStateImpl &&
@@ -234,7 +234,7 @@ class _$RegisterEventImpl implements _RegisterEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterEventImpl &&
