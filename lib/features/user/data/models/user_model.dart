@@ -12,7 +12,7 @@ class UserModel with _$UserModel {
     required String email,
     required String id,
     required bool isOnline,
-    @Default([]) List<String> roomIds,
+    String? avatar,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

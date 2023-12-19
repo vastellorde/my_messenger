@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) authorize,
+    required TResult Function(UserEntity user) authorize,
     required TResult Function() unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserModel user)? authorize,
+    TResult? Function(UserEntity user)? authorize,
     TResult? Function()? unAuthorize,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? authorize,
+    TResult Function(UserEntity user)? authorize,
     TResult Function()? unAuthorize,
     required TResult orElse(),
   }) =>
@@ -80,9 +80,9 @@ abstract class _$$AuthorizeProfileImplCopyWith<$Res> {
           $Res Function(_$AuthorizeProfileImpl) then) =
       __$$AuthorizeProfileImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({UserEntity user});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserEntityCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -102,14 +102,14 @@ class __$$AuthorizeProfileImplCopyWithImpl<$Res>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
+  $UserEntityCopyWith<$Res> get user {
+    return $UserEntityCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -121,7 +121,7 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
   const _$AuthorizeProfileImpl({required this.user});
 
   @override
-  final UserModel user;
+  final UserEntity user;
 
   @override
   String toString() {
@@ -149,7 +149,7 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) authorize,
+    required TResult Function(UserEntity user) authorize,
     required TResult Function() unAuthorize,
   }) {
     return authorize(user);
@@ -158,7 +158,7 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserModel user)? authorize,
+    TResult? Function(UserEntity user)? authorize,
     TResult? Function()? unAuthorize,
   }) {
     return authorize?.call(user);
@@ -167,7 +167,7 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? authorize,
+    TResult Function(UserEntity user)? authorize,
     TResult Function()? unAuthorize,
     required TResult orElse(),
   }) {
@@ -210,10 +210,10 @@ class _$AuthorizeProfileImpl implements _AuthorizeProfile {
 }
 
 abstract class _AuthorizeProfile implements ProfileEvent {
-  const factory _AuthorizeProfile({required final UserModel user}) =
+  const factory _AuthorizeProfile({required final UserEntity user}) =
       _$AuthorizeProfileImpl;
 
-  UserModel get user;
+  UserEntity get user;
   @JsonKey(ignore: true)
   _$$AuthorizeProfileImplCopyWith<_$AuthorizeProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -257,7 +257,7 @@ class _$UnAuthorizeProfileImpl implements _UnAuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) authorize,
+    required TResult Function(UserEntity user) authorize,
     required TResult Function() unAuthorize,
   }) {
     return unAuthorize();
@@ -266,7 +266,7 @@ class _$UnAuthorizeProfileImpl implements _UnAuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserModel user)? authorize,
+    TResult? Function(UserEntity user)? authorize,
     TResult? Function()? unAuthorize,
   }) {
     return unAuthorize?.call();
@@ -275,7 +275,7 @@ class _$UnAuthorizeProfileImpl implements _UnAuthorizeProfile {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? authorize,
+    TResult Function(UserEntity user)? authorize,
     TResult Function()? unAuthorize,
     required TResult orElse(),
   }) {
@@ -326,19 +326,19 @@ mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unAuthorized,
-    required TResult Function(UserModel user) authorized,
+    required TResult Function(UserEntity user) authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unAuthorized,
-    TResult? Function(UserModel user)? authorized,
+    TResult? Function(UserEntity user)? authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unAuthorized,
-    TResult Function(UserModel user)? authorized,
+    TResult Function(UserEntity user)? authorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -421,7 +421,7 @@ class _$UnAuthorizedProfileImpl implements _UnAuthorizedProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unAuthorized,
-    required TResult Function(UserModel user) authorized,
+    required TResult Function(UserEntity user) authorized,
   }) {
     return unAuthorized();
   }
@@ -430,7 +430,7 @@ class _$UnAuthorizedProfileImpl implements _UnAuthorizedProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unAuthorized,
-    TResult? Function(UserModel user)? authorized,
+    TResult? Function(UserEntity user)? authorized,
   }) {
     return unAuthorized?.call();
   }
@@ -439,7 +439,7 @@ class _$UnAuthorizedProfileImpl implements _UnAuthorizedProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unAuthorized,
-    TResult Function(UserModel user)? authorized,
+    TResult Function(UserEntity user)? authorized,
     required TResult orElse(),
   }) {
     if (unAuthorized != null) {
@@ -490,9 +490,9 @@ abstract class _$$AuthorizedProfileImplCopyWith<$Res> {
           $Res Function(_$AuthorizedProfileImpl) then) =
       __$$AuthorizedProfileImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({UserEntity user});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserEntityCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -512,14 +512,14 @@ class __$$AuthorizedProfileImplCopyWithImpl<$Res>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
+  $UserEntityCopyWith<$Res> get user {
+    return $UserEntityCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -531,7 +531,7 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
   const _$AuthorizedProfileImpl({required this.user});
 
   @override
-  final UserModel user;
+  final UserEntity user;
 
   @override
   String toString() {
@@ -560,7 +560,7 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unAuthorized,
-    required TResult Function(UserModel user) authorized,
+    required TResult Function(UserEntity user) authorized,
   }) {
     return authorized(user);
   }
@@ -569,7 +569,7 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unAuthorized,
-    TResult? Function(UserModel user)? authorized,
+    TResult? Function(UserEntity user)? authorized,
   }) {
     return authorized?.call(user);
   }
@@ -578,7 +578,7 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unAuthorized,
-    TResult Function(UserModel user)? authorized,
+    TResult Function(UserEntity user)? authorized,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -620,10 +620,10 @@ class _$AuthorizedProfileImpl implements _AuthorizedProfile {
 }
 
 abstract class _AuthorizedProfile implements ProfileState {
-  const factory _AuthorizedProfile({required final UserModel user}) =
+  const factory _AuthorizedProfile({required final UserEntity user}) =
       _$AuthorizedProfileImpl;
 
-  UserModel get user;
+  UserEntity get user;
   @JsonKey(ignore: true)
   _$$AuthorizedProfileImplCopyWith<_$AuthorizedProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;

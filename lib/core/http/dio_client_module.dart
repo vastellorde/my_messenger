@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_messenger/core/services/http/dio_client_creator.dart';
+import 'package:my_messenger/core/http/dio_client_creator.dart';
 
 @module
 abstract class DioClientModule {

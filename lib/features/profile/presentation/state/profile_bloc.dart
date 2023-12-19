@@ -4,18 +4,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_messenger/core/services/user/models/user_model.dart';
-import 'package:my_messenger/core/services/user/user_service.dart';
+import 'package:my_messenger/features/user/domain/entities/user_entity.dart';
+import 'package:my_messenger/features/user/domain/usecases/get_user.dart';
 
 part 'profile_bloc_models.dart';
 part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final IUserService _userService;
+  final GetUser _getUserUsecase;
   StreamSubscription? _authSubscription;
   ProfileBloc(
-    this._userService,
+    this._getUserUsecase,
   ) : super(
           const ProfileState.unAuthorized(),
         ) {
@@ -42,7 +42,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   FutureOr<void> _handleUserChanges(User? fbUser) async {
     if (fbUser != null) {
       final uid = fbUser.uid;
-      final user = await _userService.getUser(uid);
+      final user = await _getUserUsecase(GetUserParams(uid));
 
       user.when(
         left: (failure) {

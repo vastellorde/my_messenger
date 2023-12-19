@@ -3,7 +3,7 @@ part of 'profile_bloc.dart';
 @freezed
 sealed class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.authorize({
-    required UserModel user,
+    required UserEntity user,
   }) = _AuthorizeProfile;
   const factory ProfileEvent.unAuthorize() = _UnAuthorizeProfile;
 }
@@ -12,6 +12,6 @@ sealed class ProfileEvent with _$ProfileEvent {
 sealed class ProfileState with _$ProfileState {
   const factory ProfileState.unAuthorized() = _UnAuthorizedProfile;
   const factory ProfileState.authorized({
-    required UserModel user,
+    required UserEntity user,
   }) = _AuthorizedProfile;
 }

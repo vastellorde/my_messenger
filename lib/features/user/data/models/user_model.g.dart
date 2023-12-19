@@ -12,10 +12,7 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String,
       id: json['id'] as String,
       isOnline: json['is_online'] as bool,
-      roomIds: (json['room_ids'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
+      avatar: json['avatar'] as String?,
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
@@ -24,5 +21,5 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'email': instance.email,
       'id': instance.id,
       'is_online': instance.isOnline,
-      'room_ids': instance.roomIds,
+      'avatar': instance.avatar,
     };
