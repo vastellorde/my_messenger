@@ -9,10 +9,10 @@ class ChatRoomEntity with _$ChatRoomEntity {
   const factory ChatRoomEntity({
     required String id,
     required List<String> members,
-    @Default([]) List<Message> messages,
+    @Default([]) List<MessageModel> messages,
   }) = _ChatRoomEntity;
 
-  Message? get lastMessage => messages.isNotEmpty ? messages.last : null;
+  MessageModel? get lastMessage => messages.isNotEmpty ? messages.last : null;
 
   factory ChatRoomEntity.fromModel(ChatRoomModel model) {
     return ChatRoomEntity(

@@ -42,9 +42,15 @@ abstract class $AppRouter extends _i8.RootStackRouter {
       );
     },
     ChatRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ChatRouteArgs>(
+          orElse: () => ChatRouteArgs(roomId: pathParams.getString('roomId')));
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ChatPage(),
+        child: _i3.ChatPage(
+          roomId: args.roomId,
+          key: args.key,
+        ),
       );
     },
     HomeRoute.name: (routeData) {
@@ -108,16 +114,41 @@ class ChatListRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.ChatPage]
-class ChatRoute extends _i8.PageRouteInfo<void> {
-  const ChatRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class ChatRoute extends _i8.PageRouteInfo<ChatRouteArgs> {
+  ChatRoute({
+    required String roomId,
+    _i9.Key? key,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           ChatRoute.name,
+          args: ChatRouteArgs(
+            roomId: roomId,
+            key: key,
+          ),
+          rawPathParams: {'roomId': roomId},
           initialChildren: children,
         );
 
   static const String name = 'ChatRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i8.PageInfo<ChatRouteArgs> page =
+      _i8.PageInfo<ChatRouteArgs>(name);
+}
+
+class ChatRouteArgs {
+  const ChatRouteArgs({
+    required this.roomId,
+    this.key,
+  });
+
+  final String roomId;
+
+  final _i9.Key? key;
+
+  @override
+  String toString() {
+    return 'ChatRouteArgs{roomId: $roomId, key: $key}';
+  }
 }
 
 /// generated route for

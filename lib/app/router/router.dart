@@ -33,7 +33,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         ),
         AutoRoute(
           page: ChatRoute.page,
-          path: '/room/:id',
+          path: '/room/:roomId',
         ),
         RedirectRoute(
           path: '*',

@@ -12,7 +12,7 @@ _$ChatRoomModelImpl _$$ChatRoomModelImplFromJson(Map<String, dynamic> json) =>
       members:
           (json['members'] as List<dynamic>).map((e) => e as String).toList(),
       messages: (json['messages'] as List<dynamic>?)
-              ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => MessageModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );

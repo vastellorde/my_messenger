@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatRoomEntity {
   String get id => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
-  List<Message> get messages => throw _privateConstructorUsedError;
+  List<MessageModel> get messages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatRoomEntityCopyWith<ChatRoomEntity> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $ChatRoomEntityCopyWith<$Res> {
           ChatRoomEntity value, $Res Function(ChatRoomEntity) then) =
       _$ChatRoomEntityCopyWithImpl<$Res, ChatRoomEntity>;
   @useResult
-  $Res call({String id, List<String> members, List<Message> messages});
+  $Res call({String id, List<String> members, List<MessageModel> messages});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$ChatRoomEntityCopyWithImpl<$Res, $Val extends ChatRoomEntity>
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<Message>,
+              as List<MessageModel>,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$ChatRoomEntityImplCopyWith<$Res>
       __$$ChatRoomEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, List<String> members, List<Message> messages});
+  $Res call({String id, List<String> members, List<MessageModel> messages});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$ChatRoomEntityImplCopyWithImpl<$Res>
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<Message>,
+              as List<MessageModel>,
     ));
   }
 }
@@ -117,7 +117,7 @@ class _$ChatRoomEntityImpl extends _ChatRoomEntity {
   const _$ChatRoomEntityImpl(
       {required this.id,
       required final List<String> members,
-      final List<Message> messages = const []})
+      final List<MessageModel> messages = const []})
       : _members = members,
         _messages = messages,
         super._();
@@ -132,10 +132,10 @@ class _$ChatRoomEntityImpl extends _ChatRoomEntity {
     return EqualUnmodifiableListView(_members);
   }
 
-  final List<Message> _messages;
+  final List<MessageModel> _messages;
   @override
   @JsonKey()
-  List<Message> get messages {
+  List<MessageModel> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -175,7 +175,7 @@ abstract class _ChatRoomEntity extends ChatRoomEntity {
   const factory _ChatRoomEntity(
       {required final String id,
       required final List<String> members,
-      final List<Message> messages}) = _$ChatRoomEntityImpl;
+      final List<MessageModel> messages}) = _$ChatRoomEntityImpl;
   const _ChatRoomEntity._() : super._();
 
   @override
@@ -183,7 +183,7 @@ abstract class _ChatRoomEntity extends ChatRoomEntity {
   @override
   List<String> get members;
   @override
-  List<Message> get messages;
+  List<MessageModel> get messages;
   @override
   @JsonKey(ignore: true)
   _$$ChatRoomEntityImplCopyWith<_$ChatRoomEntityImpl> get copyWith =>

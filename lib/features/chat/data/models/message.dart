@@ -3,12 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'message.freezed.dart';
 part 'message.g.dart';
 
-@Freezed(
-  fromJson: true,
-  toJson: true,
-)
-class Message with _$Message {
-  const factory Message({
+@Freezed(fromJson: true)
+class MessageModel with _$MessageModel {
+  const factory MessageModel({
     required String uid,
     required String text,
     required DateTime time,
@@ -18,8 +15,8 @@ class Message with _$Message {
     @Default(false) bool isSeen,
     String? imageUrl,
     String? documentUrl,
-  }) = _Message;
+  }) = _MessageModel;
 
-  factory Message.fromJson(Map<String, dynamic> json) =>
-      _$MessageFromJson(json);
+  factory MessageModel.fromJson(Map<String, dynamic> json) =>
+      _$MessageModelFromJson(json);
 }

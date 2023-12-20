@@ -1,17 +1,18 @@
 part of 'chat_bloc.dart';
 
 @freezed
-class ChatEvent with _$ChatEvent {
-  const factory ChatEvent.sendMessage({required Message message}) =
-      _SendMessage;
+sealed class ChatEvent with _$ChatEvent {
+  const factory ChatEvent.init(String roomId) = _InitChat;
+  const factory ChatEvent.update(List<MessageEntity> messageList) = _UpdateChat;
+  const factory ChatEvent.sendMessage(SendMessageParams params) = _SendMessage;
 }
 
 @freezed
 class ChatState with _$ChatState {
-  const factory ChatState({required Ds<List<Message>> messageList}) =
+  const factory ChatState({required List<MessageEntity> messageList}) =
       _ChatState;
 
   factory ChatState.empty() {
-    return ChatState(messageList: const Ds());
+    return const ChatState(messageList: []);
   }
 }

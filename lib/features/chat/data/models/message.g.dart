@@ -6,8 +6,8 @@ part of 'message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MessageImpl _$$MessageImplFromJson(Map<String, dynamic> json) =>
-    _$MessageImpl(
+_$MessageModelImpl _$$MessageModelImplFromJson(Map<String, dynamic> json) =>
+    _$MessageModelImpl(
       uid: json['uid'] as String,
       text: json['text'] as String,
       time: DateTime.parse(json['time'] as String),
@@ -19,7 +19,7 @@ _$MessageImpl _$$MessageImplFromJson(Map<String, dynamic> json) =>
       documentUrl: json['document_url'] as String?,
     );
 
-Map<String, dynamic> _$$MessageImplToJson(_$MessageImpl instance) =>
+Map<String, dynamic> _$$MessageModelImplToJson(_$MessageModelImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'text': instance.text,

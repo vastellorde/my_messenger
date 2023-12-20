@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'message.dart';
+part of 'message_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-MessageModel _$MessageModelFromJson(Map<String, dynamic> json) {
-  return _MessageModel.fromJson(json);
-}
-
 /// @nodoc
-mixin _$MessageModel {
+mixin _$MessageEntity {
   String get uid => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
@@ -30,17 +26,16 @@ mixin _$MessageModel {
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get documentUrl => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MessageModelCopyWith<MessageModel> get copyWith =>
+  $MessageEntityCopyWith<MessageEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MessageModelCopyWith<$Res> {
-  factory $MessageModelCopyWith(
-          MessageModel value, $Res Function(MessageModel) then) =
-      _$MessageModelCopyWithImpl<$Res, MessageModel>;
+abstract class $MessageEntityCopyWith<$Res> {
+  factory $MessageEntityCopyWith(
+          MessageEntity value, $Res Function(MessageEntity) then) =
+      _$MessageEntityCopyWithImpl<$Res, MessageEntity>;
   @useResult
   $Res call(
       {String uid,
@@ -55,9 +50,9 @@ abstract class $MessageModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageModelCopyWithImpl<$Res, $Val extends MessageModel>
-    implements $MessageModelCopyWith<$Res> {
-  _$MessageModelCopyWithImpl(this._value, this._then);
+class _$MessageEntityCopyWithImpl<$Res, $Val extends MessageEntity>
+    implements $MessageEntityCopyWith<$Res> {
+  _$MessageEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -119,11 +114,11 @@ class _$MessageModelCopyWithImpl<$Res, $Val extends MessageModel>
 }
 
 /// @nodoc
-abstract class _$$MessageModelImplCopyWith<$Res>
-    implements $MessageModelCopyWith<$Res> {
-  factory _$$MessageModelImplCopyWith(
-          _$MessageModelImpl value, $Res Function(_$MessageModelImpl) then) =
-      __$$MessageModelImplCopyWithImpl<$Res>;
+abstract class _$$MessageEntityImplCopyWith<$Res>
+    implements $MessageEntityCopyWith<$Res> {
+  factory _$$MessageEntityImplCopyWith(
+          _$MessageEntityImpl value, $Res Function(_$MessageEntityImpl) then) =
+      __$$MessageEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +134,11 @@ abstract class _$$MessageModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MessageModelImplCopyWithImpl<$Res>
-    extends _$MessageModelCopyWithImpl<$Res, _$MessageModelImpl>
-    implements _$$MessageModelImplCopyWith<$Res> {
-  __$$MessageModelImplCopyWithImpl(
-      _$MessageModelImpl _value, $Res Function(_$MessageModelImpl) _then)
+class __$$MessageEntityImplCopyWithImpl<$Res>
+    extends _$MessageEntityCopyWithImpl<$Res, _$MessageEntityImpl>
+    implements _$$MessageEntityImplCopyWith<$Res> {
+  __$$MessageEntityImplCopyWithImpl(
+      _$MessageEntityImpl _value, $Res Function(_$MessageEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -159,7 +154,7 @@ class __$$MessageModelImplCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? documentUrl = freezed,
   }) {
-    return _then(_$MessageModelImpl(
+    return _then(_$MessageEntityImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -201,9 +196,9 @@ class __$$MessageModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$MessageModelImpl implements _MessageModel {
-  const _$MessageModelImpl(
+
+class _$MessageEntityImpl implements _MessageEntity {
+  const _$MessageEntityImpl(
       {required this.uid,
       required this.text,
       required this.time,
@@ -213,9 +208,6 @@ class _$MessageModelImpl implements _MessageModel {
       this.isSeen = false,
       this.imageUrl,
       this.documentUrl});
-
-  factory _$MessageModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageModelImplFromJson(json);
 
   @override
   final String uid;
@@ -239,14 +231,14 @@ class _$MessageModelImpl implements _MessageModel {
 
   @override
   String toString() {
-    return 'MessageModel(uid: $uid, text: $text, time: $time, senderUid: $senderUid, receiverUid: $receiverUid, roomId: $roomId, isSeen: $isSeen, imageUrl: $imageUrl, documentUrl: $documentUrl)';
+    return 'MessageEntity(uid: $uid, text: $text, time: $time, senderUid: $senderUid, receiverUid: $receiverUid, roomId: $roomId, isSeen: $isSeen, imageUrl: $imageUrl, documentUrl: $documentUrl)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageModelImpl &&
+            other is _$MessageEntityImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.time, time) || other.time == time) &&
@@ -262,7 +254,6 @@ class _$MessageModelImpl implements _MessageModel {
                 other.documentUrl == documentUrl));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, uid, text, time, senderUid,
       receiverUid, roomId, isSeen, imageUrl, documentUrl);
@@ -270,19 +261,12 @@ class _$MessageModelImpl implements _MessageModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MessageModelImplCopyWith<_$MessageModelImpl> get copyWith =>
-      __$$MessageModelImplCopyWithImpl<_$MessageModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageModelImplToJson(
-      this,
-    );
-  }
+  _$$MessageEntityImplCopyWith<_$MessageEntityImpl> get copyWith =>
+      __$$MessageEntityImplCopyWithImpl<_$MessageEntityImpl>(this, _$identity);
 }
 
-abstract class _MessageModel implements MessageModel {
-  const factory _MessageModel(
+abstract class _MessageEntity implements MessageEntity {
+  const factory _MessageEntity(
       {required final String uid,
       required final String text,
       required final DateTime time,
@@ -291,10 +275,7 @@ abstract class _MessageModel implements MessageModel {
       required final String roomId,
       final bool isSeen,
       final String? imageUrl,
-      final String? documentUrl}) = _$MessageModelImpl;
-
-  factory _MessageModel.fromJson(Map<String, dynamic> json) =
-      _$MessageModelImpl.fromJson;
+      final String? documentUrl}) = _$MessageEntityImpl;
 
   @override
   String get uid;
@@ -316,6 +297,6 @@ abstract class _MessageModel implements MessageModel {
   String? get documentUrl;
   @override
   @JsonKey(ignore: true)
-  _$$MessageModelImplCopyWith<_$MessageModelImpl> get copyWith =>
+  _$$MessageEntityImplCopyWith<_$MessageEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

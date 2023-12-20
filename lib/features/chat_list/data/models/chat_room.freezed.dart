@@ -22,7 +22,7 @@ ChatRoomModel _$ChatRoomModelFromJson(Map<String, dynamic> json) {
 mixin _$ChatRoomModel {
   String get id => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
-  List<Message> get messages => throw _privateConstructorUsedError;
+  List<MessageModel> get messages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $ChatRoomModelCopyWith<$Res> {
           ChatRoomModel value, $Res Function(ChatRoomModel) then) =
       _$ChatRoomModelCopyWithImpl<$Res, ChatRoomModel>;
   @useResult
-  $Res call({String id, List<String> members, List<Message> messages});
+  $Res call({String id, List<String> members, List<MessageModel> messages});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$ChatRoomModelCopyWithImpl<$Res, $Val extends ChatRoomModel>
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<Message>,
+              as List<MessageModel>,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$ChatRoomModelImplCopyWith<$Res>
       __$$ChatRoomModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, List<String> members, List<Message> messages});
+  $Res call({String id, List<String> members, List<MessageModel> messages});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$ChatRoomModelImplCopyWithImpl<$Res>
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<Message>,
+              as List<MessageModel>,
     ));
   }
 }
@@ -122,7 +122,7 @@ class _$ChatRoomModelImpl implements _ChatRoomModel {
   const _$ChatRoomModelImpl(
       {required this.id,
       required final List<String> members,
-      final List<Message> messages = const []})
+      final List<MessageModel> messages = const []})
       : _members = members,
         _messages = messages;
 
@@ -139,10 +139,10 @@ class _$ChatRoomModelImpl implements _ChatRoomModel {
     return EqualUnmodifiableListView(_members);
   }
 
-  final List<Message> _messages;
+  final List<MessageModel> _messages;
   @override
   @JsonKey()
-  List<Message> get messages {
+  List<MessageModel> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -189,7 +189,7 @@ abstract class _ChatRoomModel implements ChatRoomModel {
   const factory _ChatRoomModel(
       {required final String id,
       required final List<String> members,
-      final List<Message> messages}) = _$ChatRoomModelImpl;
+      final List<MessageModel> messages}) = _$ChatRoomModelImpl;
 
   factory _ChatRoomModel.fromJson(Map<String, dynamic> json) =
       _$ChatRoomModelImpl.fromJson;
@@ -199,7 +199,7 @@ abstract class _ChatRoomModel implements ChatRoomModel {
   @override
   List<String> get members;
   @override
-  List<Message> get messages;
+  List<MessageModel> get messages;
   @override
   @JsonKey(ignore: true)
   _$$ChatRoomModelImplCopyWith<_$ChatRoomModelImpl> get copyWith =>

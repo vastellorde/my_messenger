@@ -9,7 +9,7 @@ class ChatRoomModel with _$ChatRoomModel {
   const factory ChatRoomModel({
     required String id,
     required List<String> members,
-    @Default([]) List<Message> messages,
+    @Default([]) List<MessageModel> messages,
   }) = _ChatRoomModel;
 
   factory ChatRoomModel.fromJson(Map<String, dynamic> json) =>

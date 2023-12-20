@@ -1,15 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:my_messenger/features/chat/data/models/message.dart';
+import 'package:my_messenger/features/chat/domain/entity/message_entity.dart';
 
 class TextMessageWidget extends StatelessWidget {
-  final Message message;
+  final MessageEntity message;
   const TextMessageWidget({required this.message, super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: message.senderUid == userId
+          ? MainAxisAlignment.end
+          : MainAxisAlignment.start,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(
