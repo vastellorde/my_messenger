@@ -15,6 +15,7 @@ class Message with _$Message {
     required String senderUid,
     required String receiverUid,
     required String roomId,
+    @Default(false) bool isSeen,
     String? imageUrl,
     String? documentUrl,
   }) = _Message;

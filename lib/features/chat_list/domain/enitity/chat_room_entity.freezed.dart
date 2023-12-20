@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'chat_room.dart';
+part of 'chat_room_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,35 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ChatRoomModel _$ChatRoomModelFromJson(Map<String, dynamic> json) {
-  return _ChatRoomModel.fromJson(json);
-}
-
 /// @nodoc
-mixin _$ChatRoomModel {
+mixin _$ChatRoomEntity {
   String get id => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
   List<Message> get messages => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ChatRoomModelCopyWith<ChatRoomModel> get copyWith =>
+  $ChatRoomEntityCopyWith<ChatRoomEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatRoomModelCopyWith<$Res> {
-  factory $ChatRoomModelCopyWith(
-          ChatRoomModel value, $Res Function(ChatRoomModel) then) =
-      _$ChatRoomModelCopyWithImpl<$Res, ChatRoomModel>;
+abstract class $ChatRoomEntityCopyWith<$Res> {
+  factory $ChatRoomEntityCopyWith(
+          ChatRoomEntity value, $Res Function(ChatRoomEntity) then) =
+      _$ChatRoomEntityCopyWithImpl<$Res, ChatRoomEntity>;
   @useResult
   $Res call({String id, List<String> members, List<Message> messages});
 }
 
 /// @nodoc
-class _$ChatRoomModelCopyWithImpl<$Res, $Val extends ChatRoomModel>
-    implements $ChatRoomModelCopyWith<$Res> {
-  _$ChatRoomModelCopyWithImpl(this._value, this._then);
+class _$ChatRoomEntityCopyWithImpl<$Res, $Val extends ChatRoomEntity>
+    implements $ChatRoomEntityCopyWith<$Res> {
+  _$ChatRoomEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -74,22 +69,22 @@ class _$ChatRoomModelCopyWithImpl<$Res, $Val extends ChatRoomModel>
 }
 
 /// @nodoc
-abstract class _$$ChatRoomModelImplCopyWith<$Res>
-    implements $ChatRoomModelCopyWith<$Res> {
-  factory _$$ChatRoomModelImplCopyWith(
-          _$ChatRoomModelImpl value, $Res Function(_$ChatRoomModelImpl) then) =
-      __$$ChatRoomModelImplCopyWithImpl<$Res>;
+abstract class _$$ChatRoomEntityImplCopyWith<$Res>
+    implements $ChatRoomEntityCopyWith<$Res> {
+  factory _$$ChatRoomEntityImplCopyWith(_$ChatRoomEntityImpl value,
+          $Res Function(_$ChatRoomEntityImpl) then) =
+      __$$ChatRoomEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, List<String> members, List<Message> messages});
 }
 
 /// @nodoc
-class __$$ChatRoomModelImplCopyWithImpl<$Res>
-    extends _$ChatRoomModelCopyWithImpl<$Res, _$ChatRoomModelImpl>
-    implements _$$ChatRoomModelImplCopyWith<$Res> {
-  __$$ChatRoomModelImplCopyWithImpl(
-      _$ChatRoomModelImpl _value, $Res Function(_$ChatRoomModelImpl) _then)
+class __$$ChatRoomEntityImplCopyWithImpl<$Res>
+    extends _$ChatRoomEntityCopyWithImpl<$Res, _$ChatRoomEntityImpl>
+    implements _$$ChatRoomEntityImplCopyWith<$Res> {
+  __$$ChatRoomEntityImplCopyWithImpl(
+      _$ChatRoomEntityImpl _value, $Res Function(_$ChatRoomEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +94,7 @@ class __$$ChatRoomModelImplCopyWithImpl<$Res>
     Object? members = null,
     Object? messages = null,
   }) {
-    return _then(_$ChatRoomModelImpl(
+    return _then(_$ChatRoomEntityImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -117,17 +112,15 @@ class __$$ChatRoomModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$ChatRoomModelImpl implements _ChatRoomModel {
-  const _$ChatRoomModelImpl(
+
+class _$ChatRoomEntityImpl extends _ChatRoomEntity {
+  const _$ChatRoomEntityImpl(
       {required this.id,
       required final List<String> members,
       final List<Message> messages = const []})
       : _members = members,
-        _messages = messages;
-
-  factory _$ChatRoomModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChatRoomModelImplFromJson(json);
+        _messages = messages,
+        super._();
 
   @override
   final String id;
@@ -150,20 +143,19 @@ class _$ChatRoomModelImpl implements _ChatRoomModel {
 
   @override
   String toString() {
-    return 'ChatRoomModel(id: $id, members: $members, messages: $messages)';
+    return 'ChatRoomEntity(id: $id, members: $members, messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatRoomModelImpl &&
+            other is _$ChatRoomEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._members, _members) &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -174,25 +166,17 @@ class _$ChatRoomModelImpl implements _ChatRoomModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatRoomModelImplCopyWith<_$ChatRoomModelImpl> get copyWith =>
-      __$$ChatRoomModelImplCopyWithImpl<_$ChatRoomModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ChatRoomModelImplToJson(
-      this,
-    );
-  }
+  _$$ChatRoomEntityImplCopyWith<_$ChatRoomEntityImpl> get copyWith =>
+      __$$ChatRoomEntityImplCopyWithImpl<_$ChatRoomEntityImpl>(
+          this, _$identity);
 }
 
-abstract class _ChatRoomModel implements ChatRoomModel {
-  const factory _ChatRoomModel(
+abstract class _ChatRoomEntity extends ChatRoomEntity {
+  const factory _ChatRoomEntity(
       {required final String id,
       required final List<String> members,
-      final List<Message> messages}) = _$ChatRoomModelImpl;
-
-  factory _ChatRoomModel.fromJson(Map<String, dynamic> json) =
-      _$ChatRoomModelImpl.fromJson;
+      final List<Message> messages}) = _$ChatRoomEntityImpl;
+  const _ChatRoomEntity._() : super._();
 
   @override
   String get id;
@@ -202,6 +186,6 @@ abstract class _ChatRoomModel implements ChatRoomModel {
   List<Message> get messages;
   @override
   @JsonKey(ignore: true)
-  _$$ChatRoomModelImplCopyWith<_$ChatRoomModelImpl> get copyWith =>
+  _$$ChatRoomEntityImplCopyWith<_$ChatRoomEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

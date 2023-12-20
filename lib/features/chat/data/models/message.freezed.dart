@@ -26,6 +26,7 @@ mixin _$Message {
   String get senderUid => throw _privateConstructorUsedError;
   String get receiverUid => throw _privateConstructorUsedError;
   String get roomId => throw _privateConstructorUsedError;
+  bool get isSeen => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get documentUrl => throw _privateConstructorUsedError;
 
@@ -46,6 +47,7 @@ abstract class $MessageCopyWith<$Res> {
       String senderUid,
       String receiverUid,
       String roomId,
+      bool isSeen,
       String? imageUrl,
       String? documentUrl});
 }
@@ -69,6 +71,7 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
     Object? senderUid = null,
     Object? receiverUid = null,
     Object? roomId = null,
+    Object? isSeen = null,
     Object? imageUrl = freezed,
     Object? documentUrl = freezed,
   }) {
@@ -97,6 +100,10 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
           ? _value.roomId
           : roomId // ignore: cast_nullable_to_non_nullable
               as String,
+      isSeen: null == isSeen
+          ? _value.isSeen
+          : isSeen // ignore: cast_nullable_to_non_nullable
+              as bool,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -123,6 +130,7 @@ abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
       String senderUid,
       String receiverUid,
       String roomId,
+      bool isSeen,
       String? imageUrl,
       String? documentUrl});
 }
@@ -144,6 +152,7 @@ class __$$MessageImplCopyWithImpl<$Res>
     Object? senderUid = null,
     Object? receiverUid = null,
     Object? roomId = null,
+    Object? isSeen = null,
     Object? imageUrl = freezed,
     Object? documentUrl = freezed,
   }) {
@@ -172,6 +181,10 @@ class __$$MessageImplCopyWithImpl<$Res>
           ? _value.roomId
           : roomId // ignore: cast_nullable_to_non_nullable
               as String,
+      isSeen: null == isSeen
+          ? _value.isSeen
+          : isSeen // ignore: cast_nullable_to_non_nullable
+              as bool,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -194,6 +207,7 @@ class _$MessageImpl implements _Message {
       required this.senderUid,
       required this.receiverUid,
       required this.roomId,
+      this.isSeen = false,
       this.imageUrl,
       this.documentUrl});
 
@@ -213,13 +227,16 @@ class _$MessageImpl implements _Message {
   @override
   final String roomId;
   @override
+  @JsonKey()
+  final bool isSeen;
+  @override
   final String? imageUrl;
   @override
   final String? documentUrl;
 
   @override
   String toString() {
-    return 'Message(uid: $uid, text: $text, time: $time, senderUid: $senderUid, receiverUid: $receiverUid, roomId: $roomId, imageUrl: $imageUrl, documentUrl: $documentUrl)';
+    return 'Message(uid: $uid, text: $text, time: $time, senderUid: $senderUid, receiverUid: $receiverUid, roomId: $roomId, isSeen: $isSeen, imageUrl: $imageUrl, documentUrl: $documentUrl)';
   }
 
   @override
@@ -235,6 +252,7 @@ class _$MessageImpl implements _Message {
             (identical(other.receiverUid, receiverUid) ||
                 other.receiverUid == receiverUid) &&
             (identical(other.roomId, roomId) || other.roomId == roomId) &&
+            (identical(other.isSeen, isSeen) || other.isSeen == isSeen) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.documentUrl, documentUrl) ||
@@ -244,7 +262,7 @@ class _$MessageImpl implements _Message {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, uid, text, time, senderUid,
-      receiverUid, roomId, imageUrl, documentUrl);
+      receiverUid, roomId, isSeen, imageUrl, documentUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -268,6 +286,7 @@ abstract class _Message implements Message {
       required final String senderUid,
       required final String receiverUid,
       required final String roomId,
+      final bool isSeen,
       final String? imageUrl,
       final String? documentUrl}) = _$MessageImpl;
 
@@ -285,6 +304,8 @@ abstract class _Message implements Message {
   String get receiverUid;
   @override
   String get roomId;
+  @override
+  bool get isSeen;
   @override
   String? get imageUrl;
   @override

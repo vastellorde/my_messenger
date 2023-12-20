@@ -76,13 +76,21 @@ abstract class _ChatListEvent implements ChatListEvent {
 }
 
 /// @nodoc
-mixin _$ChatListState {}
+mixin _$ChatListState {
+  List<ChatRoomEntity> get chatRooms => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ChatListStateCopyWith<ChatListState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $ChatListStateCopyWith<$Res> {
   factory $ChatListStateCopyWith(
           ChatListState value, $Res Function(ChatListState) then) =
       _$ChatListStateCopyWithImpl<$Res, ChatListState>;
+  @useResult
+  $Res call({List<ChatRoomEntity> chatRooms});
 }
 
 /// @nodoc
@@ -94,13 +102,30 @@ class _$ChatListStateCopyWithImpl<$Res, $Val extends ChatListState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chatRooms = null,
+  }) {
+    return _then(_value.copyWith(
+      chatRooms: null == chatRooms
+          ? _value.chatRooms
+          : chatRooms // ignore: cast_nullable_to_non_nullable
+              as List<ChatRoomEntity>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ChatListStateImplCopyWith<$Res> {
+abstract class _$$ChatListStateImplCopyWith<$Res>
+    implements $ChatListStateCopyWith<$Res> {
   factory _$$ChatListStateImplCopyWith(
           _$ChatListStateImpl value, $Res Function(_$ChatListStateImpl) then) =
       __$$ChatListStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<ChatRoomEntity> chatRooms});
 }
 
 /// @nodoc
@@ -110,28 +135,68 @@ class __$$ChatListStateImplCopyWithImpl<$Res>
   __$$ChatListStateImplCopyWithImpl(
       _$ChatListStateImpl _value, $Res Function(_$ChatListStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chatRooms = null,
+  }) {
+    return _then(_$ChatListStateImpl(
+      null == chatRooms
+          ? _value._chatRooms
+          : chatRooms // ignore: cast_nullable_to_non_nullable
+              as List<ChatRoomEntity>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ChatListStateImpl implements _ChatListState {
-  const _$ChatListStateImpl();
+  const _$ChatListStateImpl(final List<ChatRoomEntity> chatRooms)
+      : _chatRooms = chatRooms;
+
+  final List<ChatRoomEntity> _chatRooms;
+  @override
+  List<ChatRoomEntity> get chatRooms {
+    if (_chatRooms is EqualUnmodifiableListView) return _chatRooms;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chatRooms);
+  }
 
   @override
   String toString() {
-    return 'ChatListState()';
+    return 'ChatListState(chatRooms: $chatRooms)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChatListStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ChatListStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._chatRooms, _chatRooms));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_chatRooms));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatListStateImplCopyWith<_$ChatListStateImpl> get copyWith =>
+      __$$ChatListStateImplCopyWithImpl<_$ChatListStateImpl>(this, _$identity);
 }
 
 abstract class _ChatListState implements ChatListState {
-  const factory _ChatListState() = _$ChatListStateImpl;
+  const factory _ChatListState(final List<ChatRoomEntity> chatRooms) =
+      _$ChatListStateImpl;
+
+  @override
+  List<ChatRoomEntity> get chatRooms;
+  @override
+  @JsonKey(ignore: true)
+  _$$ChatListStateImplCopyWith<_$ChatListStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
