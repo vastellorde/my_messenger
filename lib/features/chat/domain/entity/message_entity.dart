@@ -21,7 +21,7 @@ class MessageEntity with _$MessageEntity {
     return MessageEntity(
         uid: model.uid,
         text: model.text,
-        time: model.time,
+        time: DateTime.fromMillisecondsSinceEpoch(model.time),
         senderUid: model.senderUid,
         receiverUid: model.receiverUid,
         roomId: model.roomId);

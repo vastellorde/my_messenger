@@ -18,22 +18,25 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String roomId) init,
+    required TResult Function(String roomId, List<String> members) init,
     required TResult Function(List<MessageEntity> messageList) update,
+    required TResult Function(UserEntity receiver) updateReceiver,
     required TResult Function(SendMessageParams params) sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String roomId)? init,
+    TResult? Function(String roomId, List<String> members)? init,
     TResult? Function(List<MessageEntity> messageList)? update,
+    TResult? Function(UserEntity receiver)? updateReceiver,
     TResult? Function(SendMessageParams params)? sendMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String roomId)? init,
+    TResult Function(String roomId, List<String> members)? init,
     TResult Function(List<MessageEntity> messageList)? update,
+    TResult Function(UserEntity receiver)? updateReceiver,
     TResult Function(SendMessageParams params)? sendMessage,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitChat value) init,
     required TResult Function(_UpdateChat value) update,
+    required TResult Function(_UpdateReceiverChat value) updateReceiver,
     required TResult Function(_SendMessage value) sendMessage,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitChat value)? init,
     TResult? Function(_UpdateChat value)? update,
+    TResult? Function(_UpdateReceiverChat value)? updateReceiver,
     TResult? Function(_SendMessage value)? sendMessage,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitChat value)? init,
     TResult Function(_UpdateChat value)? update,
+    TResult Function(_UpdateReceiverChat value)? updateReceiver,
     TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) =>
@@ -85,7 +91,7 @@ abstract class _$$InitChatImplCopyWith<$Res> {
           _$InitChatImpl value, $Res Function(_$InitChatImpl) then) =
       __$$InitChatImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String roomId});
+  $Res call({String roomId, List<String> members});
 }
 
 /// @nodoc
@@ -100,12 +106,17 @@ class __$$InitChatImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? roomId = null,
+    Object? members = null,
   }) {
     return _then(_$InitChatImpl(
       null == roomId
           ? _value.roomId
           : roomId // ignore: cast_nullable_to_non_nullable
               as String,
+      null == members
+          ? _value._members
+          : members // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -113,14 +124,22 @@ class __$$InitChatImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitChatImpl implements _InitChat {
-  const _$InitChatImpl(this.roomId);
+  const _$InitChatImpl(this.roomId, final List<String> members)
+      : _members = members;
 
   @override
   final String roomId;
+  final List<String> _members;
+  @override
+  List<String> get members {
+    if (_members is EqualUnmodifiableListView) return _members;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_members);
+  }
 
   @override
   String toString() {
-    return 'ChatEvent.init(roomId: $roomId)';
+    return 'ChatEvent.init(roomId: $roomId, members: $members)';
   }
 
   @override
@@ -128,11 +147,13 @@ class _$InitChatImpl implements _InitChat {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitChatImpl &&
-            (identical(other.roomId, roomId) || other.roomId == roomId));
+            (identical(other.roomId, roomId) || other.roomId == roomId) &&
+            const DeepCollectionEquality().equals(other._members, _members));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, roomId);
+  int get hashCode => Object.hash(
+      runtimeType, roomId, const DeepCollectionEquality().hash(_members));
 
   @JsonKey(ignore: true)
   @override
@@ -143,33 +164,36 @@ class _$InitChatImpl implements _InitChat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String roomId) init,
+    required TResult Function(String roomId, List<String> members) init,
     required TResult Function(List<MessageEntity> messageList) update,
+    required TResult Function(UserEntity receiver) updateReceiver,
     required TResult Function(SendMessageParams params) sendMessage,
   }) {
-    return init(roomId);
+    return init(roomId, members);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String roomId)? init,
+    TResult? Function(String roomId, List<String> members)? init,
     TResult? Function(List<MessageEntity> messageList)? update,
+    TResult? Function(UserEntity receiver)? updateReceiver,
     TResult? Function(SendMessageParams params)? sendMessage,
   }) {
-    return init?.call(roomId);
+    return init?.call(roomId, members);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String roomId)? init,
+    TResult Function(String roomId, List<String> members)? init,
     TResult Function(List<MessageEntity> messageList)? update,
+    TResult Function(UserEntity receiver)? updateReceiver,
     TResult Function(SendMessageParams params)? sendMessage,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init(roomId);
+      return init(roomId, members);
     }
     return orElse();
   }
@@ -179,6 +203,7 @@ class _$InitChatImpl implements _InitChat {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitChat value) init,
     required TResult Function(_UpdateChat value) update,
+    required TResult Function(_UpdateReceiverChat value) updateReceiver,
     required TResult Function(_SendMessage value) sendMessage,
   }) {
     return init(this);
@@ -189,6 +214,7 @@ class _$InitChatImpl implements _InitChat {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitChat value)? init,
     TResult? Function(_UpdateChat value)? update,
+    TResult? Function(_UpdateReceiverChat value)? updateReceiver,
     TResult? Function(_SendMessage value)? sendMessage,
   }) {
     return init?.call(this);
@@ -199,6 +225,7 @@ class _$InitChatImpl implements _InitChat {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitChat value)? init,
     TResult Function(_UpdateChat value)? update,
+    TResult Function(_UpdateReceiverChat value)? updateReceiver,
     TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) {
@@ -210,9 +237,11 @@ class _$InitChatImpl implements _InitChat {
 }
 
 abstract class _InitChat implements ChatEvent {
-  const factory _InitChat(final String roomId) = _$InitChatImpl;
+  const factory _InitChat(final String roomId, final List<String> members) =
+      _$InitChatImpl;
 
   String get roomId;
+  List<String> get members;
   @JsonKey(ignore: true)
   _$$InitChatImplCopyWith<_$InitChatImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -290,8 +319,9 @@ class _$UpdateChatImpl implements _UpdateChat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String roomId) init,
+    required TResult Function(String roomId, List<String> members) init,
     required TResult Function(List<MessageEntity> messageList) update,
+    required TResult Function(UserEntity receiver) updateReceiver,
     required TResult Function(SendMessageParams params) sendMessage,
   }) {
     return update(messageList);
@@ -300,8 +330,9 @@ class _$UpdateChatImpl implements _UpdateChat {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String roomId)? init,
+    TResult? Function(String roomId, List<String> members)? init,
     TResult? Function(List<MessageEntity> messageList)? update,
+    TResult? Function(UserEntity receiver)? updateReceiver,
     TResult? Function(SendMessageParams params)? sendMessage,
   }) {
     return update?.call(messageList);
@@ -310,8 +341,9 @@ class _$UpdateChatImpl implements _UpdateChat {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String roomId)? init,
+    TResult Function(String roomId, List<String> members)? init,
     TResult Function(List<MessageEntity> messageList)? update,
+    TResult Function(UserEntity receiver)? updateReceiver,
     TResult Function(SendMessageParams params)? sendMessage,
     required TResult orElse(),
   }) {
@@ -326,6 +358,7 @@ class _$UpdateChatImpl implements _UpdateChat {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitChat value) init,
     required TResult Function(_UpdateChat value) update,
+    required TResult Function(_UpdateReceiverChat value) updateReceiver,
     required TResult Function(_SendMessage value) sendMessage,
   }) {
     return update(this);
@@ -336,6 +369,7 @@ class _$UpdateChatImpl implements _UpdateChat {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitChat value)? init,
     TResult? Function(_UpdateChat value)? update,
+    TResult? Function(_UpdateReceiverChat value)? updateReceiver,
     TResult? Function(_SendMessage value)? sendMessage,
   }) {
     return update?.call(this);
@@ -346,6 +380,7 @@ class _$UpdateChatImpl implements _UpdateChat {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitChat value)? init,
     TResult Function(_UpdateChat value)? update,
+    TResult Function(_UpdateReceiverChat value)? updateReceiver,
     TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) {
@@ -363,6 +398,164 @@ abstract class _UpdateChat implements ChatEvent {
   List<MessageEntity> get messageList;
   @JsonKey(ignore: true)
   _$$UpdateChatImplCopyWith<_$UpdateChatImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateReceiverChatImplCopyWith<$Res> {
+  factory _$$UpdateReceiverChatImplCopyWith(_$UpdateReceiverChatImpl value,
+          $Res Function(_$UpdateReceiverChatImpl) then) =
+      __$$UpdateReceiverChatImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserEntity receiver});
+
+  $UserEntityCopyWith<$Res> get receiver;
+}
+
+/// @nodoc
+class __$$UpdateReceiverChatImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$UpdateReceiverChatImpl>
+    implements _$$UpdateReceiverChatImplCopyWith<$Res> {
+  __$$UpdateReceiverChatImplCopyWithImpl(_$UpdateReceiverChatImpl _value,
+      $Res Function(_$UpdateReceiverChatImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? receiver = null,
+  }) {
+    return _then(_$UpdateReceiverChatImpl(
+      null == receiver
+          ? _value.receiver
+          : receiver // ignore: cast_nullable_to_non_nullable
+              as UserEntity,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserEntityCopyWith<$Res> get receiver {
+    return $UserEntityCopyWith<$Res>(_value.receiver, (value) {
+      return _then(_value.copyWith(receiver: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateReceiverChatImpl implements _UpdateReceiverChat {
+  const _$UpdateReceiverChatImpl(this.receiver);
+
+  @override
+  final UserEntity receiver;
+
+  @override
+  String toString() {
+    return 'ChatEvent.updateReceiver(receiver: $receiver)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateReceiverChatImpl &&
+            (identical(other.receiver, receiver) ||
+                other.receiver == receiver));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, receiver);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateReceiverChatImplCopyWith<_$UpdateReceiverChatImpl> get copyWith =>
+      __$$UpdateReceiverChatImplCopyWithImpl<_$UpdateReceiverChatImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String roomId, List<String> members) init,
+    required TResult Function(List<MessageEntity> messageList) update,
+    required TResult Function(UserEntity receiver) updateReceiver,
+    required TResult Function(SendMessageParams params) sendMessage,
+  }) {
+    return updateReceiver(receiver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String roomId, List<String> members)? init,
+    TResult? Function(List<MessageEntity> messageList)? update,
+    TResult? Function(UserEntity receiver)? updateReceiver,
+    TResult? Function(SendMessageParams params)? sendMessage,
+  }) {
+    return updateReceiver?.call(receiver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String roomId, List<String> members)? init,
+    TResult Function(List<MessageEntity> messageList)? update,
+    TResult Function(UserEntity receiver)? updateReceiver,
+    TResult Function(SendMessageParams params)? sendMessage,
+    required TResult orElse(),
+  }) {
+    if (updateReceiver != null) {
+      return updateReceiver(receiver);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitChat value) init,
+    required TResult Function(_UpdateChat value) update,
+    required TResult Function(_UpdateReceiverChat value) updateReceiver,
+    required TResult Function(_SendMessage value) sendMessage,
+  }) {
+    return updateReceiver(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitChat value)? init,
+    TResult? Function(_UpdateChat value)? update,
+    TResult? Function(_UpdateReceiverChat value)? updateReceiver,
+    TResult? Function(_SendMessage value)? sendMessage,
+  }) {
+    return updateReceiver?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitChat value)? init,
+    TResult Function(_UpdateChat value)? update,
+    TResult Function(_UpdateReceiverChat value)? updateReceiver,
+    TResult Function(_SendMessage value)? sendMessage,
+    required TResult orElse(),
+  }) {
+    if (updateReceiver != null) {
+      return updateReceiver(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateReceiverChat implements ChatEvent {
+  const factory _UpdateReceiverChat(final UserEntity receiver) =
+      _$UpdateReceiverChatImpl;
+
+  UserEntity get receiver;
+  @JsonKey(ignore: true)
+  _$$UpdateReceiverChatImplCopyWith<_$UpdateReceiverChatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -430,8 +623,9 @@ class _$SendMessageImpl implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String roomId) init,
+    required TResult Function(String roomId, List<String> members) init,
     required TResult Function(List<MessageEntity> messageList) update,
+    required TResult Function(UserEntity receiver) updateReceiver,
     required TResult Function(SendMessageParams params) sendMessage,
   }) {
     return sendMessage(params);
@@ -440,8 +634,9 @@ class _$SendMessageImpl implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String roomId)? init,
+    TResult? Function(String roomId, List<String> members)? init,
     TResult? Function(List<MessageEntity> messageList)? update,
+    TResult? Function(UserEntity receiver)? updateReceiver,
     TResult? Function(SendMessageParams params)? sendMessage,
   }) {
     return sendMessage?.call(params);
@@ -450,8 +645,9 @@ class _$SendMessageImpl implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String roomId)? init,
+    TResult Function(String roomId, List<String> members)? init,
     TResult Function(List<MessageEntity> messageList)? update,
+    TResult Function(UserEntity receiver)? updateReceiver,
     TResult Function(SendMessageParams params)? sendMessage,
     required TResult orElse(),
   }) {
@@ -466,6 +662,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitChat value) init,
     required TResult Function(_UpdateChat value) update,
+    required TResult Function(_UpdateReceiverChat value) updateReceiver,
     required TResult Function(_SendMessage value) sendMessage,
   }) {
     return sendMessage(this);
@@ -476,6 +673,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitChat value)? init,
     TResult? Function(_UpdateChat value)? update,
+    TResult? Function(_UpdateReceiverChat value)? updateReceiver,
     TResult? Function(_SendMessage value)? sendMessage,
   }) {
     return sendMessage?.call(this);
@@ -486,6 +684,7 @@ class _$SendMessageImpl implements _SendMessage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitChat value)? init,
     TResult Function(_UpdateChat value)? update,
+    TResult Function(_UpdateReceiverChat value)? updateReceiver,
     TResult Function(_SendMessage value)? sendMessage,
     required TResult orElse(),
   }) {
@@ -509,6 +708,7 @@ abstract class _SendMessage implements ChatEvent {
 /// @nodoc
 mixin _$ChatState {
   List<MessageEntity> get messageList => throw _privateConstructorUsedError;
+  UserEntity get receiver => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatStateCopyWith<ChatState> get copyWith =>
@@ -520,7 +720,9 @@ abstract class $ChatStateCopyWith<$Res> {
   factory $ChatStateCopyWith(ChatState value, $Res Function(ChatState) then) =
       _$ChatStateCopyWithImpl<$Res, ChatState>;
   @useResult
-  $Res call({List<MessageEntity> messageList});
+  $Res call({List<MessageEntity> messageList, UserEntity receiver});
+
+  $UserEntityCopyWith<$Res> get receiver;
 }
 
 /// @nodoc
@@ -537,13 +739,26 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
   @override
   $Res call({
     Object? messageList = null,
+    Object? receiver = null,
   }) {
     return _then(_value.copyWith(
       messageList: null == messageList
           ? _value.messageList
           : messageList // ignore: cast_nullable_to_non_nullable
               as List<MessageEntity>,
+      receiver: null == receiver
+          ? _value.receiver
+          : receiver // ignore: cast_nullable_to_non_nullable
+              as UserEntity,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserEntityCopyWith<$Res> get receiver {
+    return $UserEntityCopyWith<$Res>(_value.receiver, (value) {
+      return _then(_value.copyWith(receiver: value) as $Val);
+    });
   }
 }
 
@@ -555,7 +770,10 @@ abstract class _$$ChatStateImplCopyWith<$Res>
       __$$ChatStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MessageEntity> messageList});
+  $Res call({List<MessageEntity> messageList, UserEntity receiver});
+
+  @override
+  $UserEntityCopyWith<$Res> get receiver;
 }
 
 /// @nodoc
@@ -570,12 +788,17 @@ class __$$ChatStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messageList = null,
+    Object? receiver = null,
   }) {
     return _then(_$ChatStateImpl(
       messageList: null == messageList
           ? _value._messageList
           : messageList // ignore: cast_nullable_to_non_nullable
               as List<MessageEntity>,
+      receiver: null == receiver
+          ? _value.receiver
+          : receiver // ignore: cast_nullable_to_non_nullable
+              as UserEntity,
     ));
   }
 }
@@ -583,7 +806,8 @@ class __$$ChatStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ChatStateImpl implements _ChatState {
-  const _$ChatStateImpl({required final List<MessageEntity> messageList})
+  const _$ChatStateImpl(
+      {required final List<MessageEntity> messageList, required this.receiver})
       : _messageList = messageList;
 
   final List<MessageEntity> _messageList;
@@ -595,8 +819,11 @@ class _$ChatStateImpl implements _ChatState {
   }
 
   @override
+  final UserEntity receiver;
+
+  @override
   String toString() {
-    return 'ChatState(messageList: $messageList)';
+    return 'ChatState(messageList: $messageList, receiver: $receiver)';
   }
 
   @override
@@ -605,12 +832,14 @@ class _$ChatStateImpl implements _ChatState {
         (other.runtimeType == runtimeType &&
             other is _$ChatStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._messageList, _messageList));
+                .equals(other._messageList, _messageList) &&
+            (identical(other.receiver, receiver) ||
+                other.receiver == receiver));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_messageList));
+      runtimeType, const DeepCollectionEquality().hash(_messageList), receiver);
 
   @JsonKey(ignore: true)
   @override
@@ -620,11 +849,14 @@ class _$ChatStateImpl implements _ChatState {
 }
 
 abstract class _ChatState implements ChatState {
-  const factory _ChatState({required final List<MessageEntity> messageList}) =
-      _$ChatStateImpl;
+  const factory _ChatState(
+      {required final List<MessageEntity> messageList,
+      required final UserEntity receiver}) = _$ChatStateImpl;
 
   @override
   List<MessageEntity> get messageList;
+  @override
+  UserEntity get receiver;
   @override
   @JsonKey(ignore: true)
   _$$ChatStateImplCopyWith<_$ChatStateImpl> get copyWith =>

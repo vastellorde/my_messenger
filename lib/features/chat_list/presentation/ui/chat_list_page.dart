@@ -24,7 +24,8 @@ class ChatListPage extends StatelessWidget {
                 final item = state.chatRooms[index];
                 return ListTile(
                   onTap: () {
-                    AutoRouter.of(context).pushNamed('/room/${item.id}');
+                    AutoRouter.of(context).pushNamed(
+                        '/room/${item.id}?members=${item.members.join(',')}');
                   },
                   leading: const Icon(Icons.person),
                   title: const Text('Some guy'),

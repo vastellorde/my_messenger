@@ -115,6 +115,7 @@ _i1.GetIt $initGetIt(
   gh.factory<_i31.ChatBloc>(() => _i31.ChatBloc(
         gh<_i24.GetMessages>(),
         gh<_i21.SendMessage>(),
+        gh<_i26.GetUser>(),
       ));
   gh.factory<_i32.ChatListBloc>(() => _i32.ChatListBloc(gh<_i25.GetRooms>()));
   gh.singleton<_i33.Dio>(

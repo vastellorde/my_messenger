@@ -28,6 +28,7 @@ class ChatRemoteDatasource implements IChatRemoteDatasource {
           .collection(
             'rooms/$roomId/messages',
           )
+          .orderBy('time', descending: true)
           .snapshots()
           .map((event) {
         return event.docs.map((doc) {
@@ -55,7 +56,7 @@ class ChatRemoteDatasource implements IChatRemoteDatasource {
           'room_id': roomId,
           'sender_uid': senderId,
           'receiver_uid': receiverId,
-          'time': DateTime.now().toString(),
+          'time': DateTime.now().millisecondsSinceEpoch,
         },
       );
       return const Either.right(unit);

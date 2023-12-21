@@ -10,7 +10,7 @@ _$MessageModelImpl _$$MessageModelImplFromJson(Map<String, dynamic> json) =>
     _$MessageModelImpl(
       uid: json['uid'] as String,
       text: json['text'] as String,
-      time: DateTime.parse(json['time'] as String),
+      time: json['time'] as int,
       senderUid: json['sender_uid'] as String,
       receiverUid: json['receiver_uid'] as String,
       roomId: json['room_id'] as String,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$$MessageModelImplToJson(_$MessageModelImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'text': instance.text,
-      'time': instance.time.toIso8601String(),
+      'time': instance.time,
       'sender_uid': instance.senderUid,
       'receiver_uid': instance.receiverUid,
       'room_id': instance.roomId,

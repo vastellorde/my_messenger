@@ -8,7 +8,7 @@ class MessageModel with _$MessageModel {
   const factory MessageModel({
     required String uid,
     required String text,
-    required DateTime time,
+    required int time,
     required String senderUid,
     required String receiverUid,
     required String roomId,

@@ -22,7 +22,7 @@ MessageModel _$MessageModelFromJson(Map<String, dynamic> json) {
 mixin _$MessageModel {
   String get uid => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
-  DateTime get time => throw _privateConstructorUsedError;
+  int get time => throw _privateConstructorUsedError;
   String get senderUid => throw _privateConstructorUsedError;
   String get receiverUid => throw _privateConstructorUsedError;
   String get roomId => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $MessageModelCopyWith<$Res> {
   $Res call(
       {String uid,
       String text,
-      DateTime time,
+      int time,
       String senderUid,
       String receiverUid,
       String roomId,
@@ -89,7 +89,7 @@ class _$MessageModelCopyWithImpl<$Res, $Val extends MessageModel>
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       senderUid: null == senderUid
           ? _value.senderUid
           : senderUid // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$MessageModelImplCopyWith<$Res>
   $Res call(
       {String uid,
       String text,
-      DateTime time,
+      int time,
       String senderUid,
       String receiverUid,
       String roomId,
@@ -171,7 +171,7 @@ class __$$MessageModelImplCopyWithImpl<$Res>
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
       senderUid: null == senderUid
           ? _value.senderUid
           : senderUid // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class _$MessageModelImpl implements _MessageModel {
   @override
   final String text;
   @override
-  final DateTime time;
+  final int time;
   @override
   final String senderUid;
   @override
@@ -285,7 +285,7 @@ abstract class _MessageModel implements MessageModel {
   const factory _MessageModel(
       {required final String uid,
       required final String text,
-      required final DateTime time,
+      required final int time,
       required final String senderUid,
       required final String receiverUid,
       required final String roomId,
@@ -301,7 +301,7 @@ abstract class _MessageModel implements MessageModel {
   @override
   String get text;
   @override
-  DateTime get time;
+  int get time;
   @override
   String get senderUid;
   @override
