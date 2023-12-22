@@ -19,9 +19,7 @@ class HomePage extends StatelessWidget {
               body: child,
               bottomNavigationBar: NavigationBar(
                 selectedIndex: tabsRouter.activeIndex,
-                onDestinationSelected: (index) {
-                  tabsRouter.setActiveIndex(index);
-                },
+                onDestinationSelected: tabsRouter.setActiveIndex,
                 destinations: const [
                   NavigationDestination(
                     icon: Icon(Icons.chat),

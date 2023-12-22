@@ -24,7 +24,7 @@ class ChatRoomRepository implements IChatRoomRepository {
       return Either.left(res.left);
     }
     return Either.right(
-      res.right.map((e) => ChatRoomEntity.fromModel(e)).toList(),
+      res.right.map(ChatRoomEntity.fromModel).toList(),
     );
   }
 }

@@ -13,7 +13,7 @@ part 'profile_bloc.freezed.dart';
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final GetUser _getUserUsecase;
-  StreamSubscription? _authSubscription;
+  StreamSubscription<User?>? _authSubscription;
   ProfileBloc(
     this._getUserUsecase,
   ) : super(

@@ -21,7 +21,7 @@ class ChatRepository implements IChatRepository {
     }
 
     return Either.right(res.right.map((event) {
-      return event.map((e) => MessageEntity.fromModel(e));
+      return event.map(MessageEntity.fromModel);
     }));
   }
 

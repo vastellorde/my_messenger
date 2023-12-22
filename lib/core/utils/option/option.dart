@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'option.freezed.dart';
 
 @freezed
-class Option<T> with _$Option {
+class Option<T> with _$Option<T> {
   const factory Option.some(T value) = _Some;
   const factory Option.none() = _None;
 

@@ -19,14 +19,12 @@ class DioClientCreator implements IDioClientCreator {
   @override
   Dio makeDioClient() {
     final dio = Dio();
-    const baseUrl = bool.hasEnvironment('BASE_URL') ?
-      String.fromEnvironment('BASE_URL') :
-      'localhost';
+    const baseUrl = 'localhost';
 
     dio.httpClientAdapter = NativeAdapter();
     dio.interceptors.add(TalkerDioLogger(
-        talker: talker,
-        settings: const TalkerDioLoggerSettings(
+      talker: talker,
+      settings: const TalkerDioLoggerSettings(
         printRequestHeaders: true,
         printResponseHeaders: true,
       ),

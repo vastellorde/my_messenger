@@ -15,7 +15,7 @@ class ProfileSliverAppBar extends SliverPersistentHeaderDelegate {
     begin: const EdgeInsets.only(bottom: 10),
     end: const EdgeInsets.only(top: 45),
   );
-  final _avatarOpacityTween = DoubleTween(begin: 1.0, end: 0.0);
+  final _avatarOpacityTween = DoubleTween(begin: 1, end: 0);
   final _backgroundTween =
       ColorTween(begin: AppColors.background, end: Colors.white);
   @override
@@ -39,7 +39,6 @@ class ProfileSliverAppBar extends SliverPersistentHeaderDelegate {
           duration: const Duration(milliseconds: 100),
           opacity: avatarOpacity,
           child: const Align(
-            alignment: Alignment.center,
             child: SizedBox(
               height: 80,
               width: 80,

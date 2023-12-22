@@ -18,7 +18,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final GetMessages _getMessages;
   final SendMessage _sendMessage;
   final GetUser _getUser;
-  StreamSubscription? _subscription;
+  StreamSubscription<Iterable<MessageEntity>>? _subscription;
   ChatBloc(
     this._getMessages,
     this._sendMessage,

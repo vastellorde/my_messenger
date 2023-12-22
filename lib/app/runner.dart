@@ -32,7 +32,7 @@ class Runner {
     if (kDebugMode) {
       await FirebaseAuth.instance.useAuthEmulator('localhost', 9090);
       FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-      FirebaseFirestore.setLoggingEnabled(true);
+      await FirebaseFirestore.setLoggingEnabled(true);
     }
   }
 }

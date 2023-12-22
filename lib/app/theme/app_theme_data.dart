@@ -6,7 +6,6 @@ abstract final class AppThemeData {
     brightness: Brightness.light,
     extensions: [AppTheme.light],
     colorScheme: ColorScheme.fromSeed(
-      brightness: Brightness.light,
       seedColor: AppTheme.light.primary,
       primary: AppTheme.light.primary,
       secondary: AppTheme.light.secondary,
@@ -21,9 +20,7 @@ abstract final class AppThemeData {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: BorderSide(
-            width: 1,
-            color: AppTheme.light.background,
-            style: BorderStyle.none),
+            color: AppTheme.light.background, style: BorderStyle.none),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),

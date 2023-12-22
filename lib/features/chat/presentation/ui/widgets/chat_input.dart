@@ -89,36 +89,12 @@ class _ChatInputState extends State<ChatInput> {
                       textEditingController: controller,
                       onBackspacePressed: _onBackspacePressed,
                       config: Config(
-                        columns: 7,
                         // Issue: https://github.com/flutter/flutter/issues/28894
                         emojiSizeMax: 32 *
                             (defaultTargetPlatform == TargetPlatform.iOS
                                 ? 1.30
                                 : 1.0),
-                        verticalSpacing: 0,
-                        horizontalSpacing: 0,
-                        gridPadding: EdgeInsets.zero,
                         bgColor: Colors.white,
-                        indicatorColor: Colors.blue,
-                        iconColor: Colors.grey,
-                        iconColorSelected: Colors.blue,
-                        backspaceColor: Colors.blue,
-                        skinToneDialogBgColor: Colors.white,
-                        skinToneIndicatorColor: Colors.grey,
-                        enableSkinTones: true,
-                        recentTabBehavior: RecentTabBehavior.RECENT,
-                        recentsLimit: 28,
-                        replaceEmojiOnLimitExceed: false,
-                        noRecents: const Text(
-                          'No Recents',
-                          style: TextStyle(fontSize: 20, color: Colors.black26),
-                          textAlign: TextAlign.center,
-                        ),
-                        loadingIndicator: const SizedBox.shrink(),
-                        tabIndicatorAnimDuration: kTabScrollDuration,
-                        categoryIcons: const CategoryIcons(),
-                        buttonMode: ButtonMode.MATERIAL,
-                        checkPlatformCompatibility: true,
                       ),
                     ),
                   ),

@@ -19,7 +19,7 @@ class ChatListPage extends StatelessWidget {
         body: BlocBuilder<ChatListBloc, ChatListState>(
           builder: (context, state) {
             return ListView.separated(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16),
               itemBuilder: (context, index) {
                 final item = state.chatRooms[index];
                 return ListTile(
@@ -37,7 +37,7 @@ class ChatListPage extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(4),
                       child: Text(
                         item.messages
                             .where((element) => !element.isSeen)

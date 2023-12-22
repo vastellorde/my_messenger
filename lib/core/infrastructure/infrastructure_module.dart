@@ -6,5 +6,5 @@ abstract class InfrastructureModule {
   @lazySingleton
   Talker talker() {
     return TalkerFlutter.init();
-  } 
+  }
 }

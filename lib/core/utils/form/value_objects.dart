@@ -3,7 +3,7 @@ import 'package:my_messenger/core/utils/form/value_failure.dart';
 import 'package:my_messenger/core/utils/form/value_object.dart';
 import 'package:my_messenger/core/utils/form/value_validators.dart';
 
-class EmailAddress extends ValueObject {
+class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -15,7 +15,7 @@ class EmailAddress extends ValueObject {
   const EmailAddress._(this.value);
 }
 
-class Password extends ValueObject {
+class Password extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -26,7 +26,7 @@ class Password extends ValueObject {
   const Password._(this.value);
 }
 
-class RepeatPassword extends ValueObject {
+class RepeatPassword extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -38,7 +38,7 @@ class RepeatPassword extends ValueObject {
   const RepeatPassword._(this.value);
 }
 
-class Username extends ValueObject {
+class Username extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
